@@ -1,14 +1,47 @@
+html {
+  font-size: 16px;
+}
+
 body {
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  height: 100vh;
+  margin: 0;
 }
 
 .top-navbar {
-    background-color: #0C1740;
+  background-color: #0c1740;
 }
 
-/* .btn-success {
-    background-color: #CAD6FF !important;
-    color: #0C1740 !important;
-    border-color: #CAD6FF !important;
-} */
+.badge {
+  background-color: #0c1740 !important;
+  height: 2.5rem !important;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* CSS untuk menampilkan nama di bawah gambar */
+.card-name {
+  text-align: center;
+}
+
+.card-info-box {
+  background-color: #2b4658;
+  padding: 10px;
+  color: white;
+  text-align: start;
+}
