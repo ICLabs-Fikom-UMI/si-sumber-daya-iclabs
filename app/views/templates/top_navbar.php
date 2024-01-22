@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg top-navbar navbar-dark">
+<nav class="navbar navbar-expand-lg top-navbar navbar-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand fw-bold text-white me-5" href="#">
             <img src="asset/image/logo.png" alt="Logo" width="76" height="44" class="d-inline-block align-text-center">
@@ -12,13 +12,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item me-4">
-                    <a class="nav-link text-white" href="#">Kepala Lab</a>
+                    <a class="nav-link text-white" href="#kepala_lab">Kepala Lab</a>
                 </li>
                 <li class="nav-item me-4">
-                    <a class="nav-link text-white" href="#">Laboran</a>
+                    <a class="nav-link text-white" href="#laboran">Laboran</a>
                 </li>
                 <li class="nav-item me-4">
-                    <a class="nav-link text-white" href="">Asisten Laboratorium</a>
+                    <a class="nav-link text-white" href="#asisten">Asisten Laboratorium</a>
                 </li>
             </ul>
 

@@ -9,6 +9,10 @@ body {
   margin: 0;
 }
 
+section {
+  padding-top: .1rem;
+}
+
 .top-navbar {
   background-color: #0c1740;
 }
@@ -41,4 +45,8 @@ body {
   padding: 10px;
   color: white;
   text-align: start;
+}
+
+.mt-n1 {
+  margin-top: -1rem !important;
 }

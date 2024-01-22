@@ -1,16 +1,15 @@
 <?php
 
-class KepalaLab_model  {
-    private $table = 'mst_kepala_lab';
+class Laboran_model  {
+    private $table = 'mst_laboran';
     private $db;
     
     public function __construct() {
         $this->db = new Database;
     }
 
-    public function getAllKepalaLab() {
+    public function getAllLaboran() {
         $this->db->query('SELECT * FROM ' . $this->table);
         return $this->db->resultSet();
     }
 }
-
