@@ -1,14 +1,27 @@
 <?php
 
-class Home extends Controller{
-    public function index() {
+class Home extends Controller
+{
+    public function index()
+    {
         $data['judul'] = 'Home';
-        $data['kepalaLab'] = $this->model('kepalaLab_model')->getAllKepalaLab(); 
+        $data['kepalaLab'] = $this->model('kepalaLab_model')->getAllKepalaLab();
         $data['laboran'] = $this->model('laboran_model')->getAllLaboran();
         $data['asisten'] = $this->model('asisten_model')->getAllAsisten();
         $this->view('templates/header', $data);
-        $this->view('templates/top_navbar');
+        $this->view('templates/top_navbar_home');
         $this->view('home/index', $data);
+        $this->view('templates/footer');
+    }
+
+    public function detail_asisten($id_asisten)
+    {
+        // echo $id_asisten;
+        $data['judul'] = 'Detail Sumber Daya';
+        $data['asisten'] = $this->model('asisten_model')->getAsistenById($id_asisten);
+        $this->view('templates/header', $data);
+        $this->view('templates/top_navbar_page');
+        $this->view('home/detail_asisten', $data);
         $this->view('templates/footer');
     }
 }

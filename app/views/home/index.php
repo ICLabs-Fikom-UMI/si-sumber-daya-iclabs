@@ -93,8 +93,8 @@
 
 
 <!-- Asisten Lab -->
-<section id="asisten" style="padding-top: 3rem;">
-  <div class=" container mt-5">
+<section id="asisten" >
+  <div class=" container mt-5 pt-5">
     <div class="d-flex justify-content-center align-items-center">
       <span class="badge bg-info text-white">ASISTEN LABORATORIUM</span>
     </div>
@@ -104,45 +104,41 @@
 
 <div class="container mt-5">
   <div class="row row-cols-1 row-cols-md-4 row-cols-2 g-4 justify-content-center">
-    <?php
 
-    // card asisten
-    foreach ($data['asisten'] as $asisten) {
-      echo '
-      <a href="">
+    <?php foreach ($data['asisten'] as $asisten) : ?>
+      <a href="/tubesmvc/public/home/detail_asisten/<?= $asisten['id_asisten']; ?>" class="text-decoration-none">
         <div class="col">
           <div class="card">
-            <img src="asset/image/' . $asisten['foto'] . '" class="card-img-top object-fit-cover" style="object-position: center; widht:330.333px; height: 330.333px;" alt="Card Image">
+            <img src="asset/image/<?= $asisten['foto_home']; ?>" class="card-img-top object-fit-cover" style="object-position: center; height: 330.333px;" alt="Card Image">
             <div class="card-body overflow-hidden">
-              <p class="card-name text-center mt-n1">' . $asisten['nama_asisten'] . '</p>
+              <p class="card-name text-center mt-n1"><?= $asisten['nama_asisten']; ?></p>
             </div>
             <div class="card-info-box">
-                <div class="center ms-2 fs-6">
-                    <span>
-                    <img src="asset/image/icon/univ.png" class="me-1">
-                    ' . $asisten['prodi'] . '
-                    </span><br>
-                    <span>
-                      <i class="bi bi-card-text"></i>
-                      ' . $asisten['kelas'] . '
-                    </span><br>
-                    <span>
-                      <img src="asset/image/icon/nidn.png" class="me-1">
-                      ' . $asisten['nim'] . '
-                    </span><br>
-                    <span>
-                      <img src="asset/image/icon/calendar.png" class="me-1">
-                      ' . $asisten['angkatan'] . '
-                    </span>
-                </div>
+              <div class="center ms-2 fs-6">
+                <span>
+                  <img src="asset/image/icon/univ.png" class="me-1">
+                  <?= $asisten['prodi']; ?>
+                </span><br>
+                <span>
+                  <i class="bi bi-card-text"></i>
+                  <?= $asisten['kelas']; ?>
+                </span><br>
+                <span>
+                  <img src="asset/image/icon/nidn.png" class="me-1">
+                  <?= $asisten['nim']; ?>
+                </span><br>
+                <span>
+                  <img src="asset/image/icon/calendar.png" class="me-1">
+                  <?= $asisten['angkatan']; ?>
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      ';
-    }
-    ?>
+      </a>
+    <?php endforeach; ?>
+
   </div>
 </div>
-</a>
 
 <!-- end of asisten -->
