@@ -5,7 +5,7 @@
 
 ### Deskripsi Aplikasi
 - Rumusan Masalah :
-	> Masih adanya mahasiswa/praktikan yang belum mengetahui siapa-siapa saja sumber daya iclabs. Seperti kepala lab, laboran dan asisten lab.
+	- Masih adanya mahasiswa/praktikan yang belum mengetahui siapa-siapa saja sumber daya iclabs. Seperti kepala lab, laboran dan asisten lab.
 	-Mahasiswa tidak punya tempat dalam mencari kontak ataupun identitas dari sumber daya iclabs yang mereka butuhkan. Sehingga dibutuhkan sebuah web yang memiliki informasi penting mengenai sumber daya iclabs yang mereka cari seperti gambar, kontak, nama, dll
 	-Kurangnya informasi mengenai siapa-siapa saja orang-orang penting yang pernah menjadi sumber daya iclabs 
 - Tujuan Sistem Informasi :
