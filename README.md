@@ -5,14 +5,13 @@
 
 ### Deskripsi Aplikasi
 - Rumusan Masalah :
-	> Masih adanya mahasiswa/praktikan yang belum mengetahui siapa-siapa saja 	  sumber daya iclabs. Seperti kepala lab, laboran dan asisten lab.
-	> Mahasiswa tidak punya tempat dalam mencari kontak ataupun identitas dari 	  	  sumber daya iclabs yang mereka butuhkan. Sehingga dibutuhkan sebuah web yang 	  memiliki informasi penting mengenai sumber daya iclabs yang mereka cari 		  seperti gambar, kontak, nama, dll
-	> Kurangnya informasi mengenai siapa-siapa saja orang-orang penting yang 	  pernah menjadi sumber daya iclabs 
+  	-Masih adanya mahasiswa/praktikan yang belum mengetahui siapa-siapa saja sumber daya iclabs. Seperti kepala lab, laboran dan asisten lab.
+	-Mahasiswa tidak punya tempat dalam mencari kontak ataupun identitas dari sumber daya iclabs yang mereka butuhkan. Sehingga dibutuhkan sebuah web yang memiliki informasi penting mengenai sumber daya iclabs yang mereka cari seperti gambar, kontak, nama, dll
+	-Kurangnya informasi mengenai siapa-siapa saja orang-orang penting yang pernah menjadi sumber daya iclabs 
 - Tujuan Sistem Informasi :
-	> Menampilkan informasi kepada mahasiswa/praktikan identitas dari sumber daya 	  iclabs. Yang didalamnya sudah termasuk kepala lab, laboran, dan asisten lab.
-	> Memudahkan para mahasiswa/praktikan maupun orang yang berkepentingan dalam 	  mencari kontak maupun identitas dari sumber daya iclabs yang mereka 	  butuhkan, yang ditampilkan dalam bentuk web yang mudah digunakan dan mudah 
-	  diakses.
-	> Menampilkan orang-orang penting yang pernah menjadi sumber daya iclabs mulai 	  dari angkatan-angkatan terdahulu hingga sekarang
+	-Menampilkan informasi kepada mahasiswa/praktikan identitas dari sumber daya iclabs. Yang didalamnya sudah termasuk kepala lab, laboran, dan asisten lab.
+	-Memudahkan para mahasiswa/praktikan maupun orang yang berkepentingan dalam mencari kontak maupun identitas dari sumber daya iclabs yang mereka butuhkan, yang ditampilkan dalam bentuk web yang mudah digunakan dan mudah diakses.
+	-Menampilkan orang-orang penting yang pernah menjadi sumber daya iclabs mulai 	  dari angkatan-angkatan terdahulu hingga sekarang
 - HTML 5, css, PHP, Bootstrap v5.3, Bootstrap icons, Google Font Api, jsDelivr...
 
 ### Fitur MVP Aplikasi
