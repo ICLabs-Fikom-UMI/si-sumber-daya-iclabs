@@ -15,7 +15,7 @@ class KepalaLab_model  {
 
     public function getKepalaLabById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_kepala_lab = :id');
         $this->db->bind('id', $id);
         return $this->db->single();
     }

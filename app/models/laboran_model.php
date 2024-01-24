@@ -12,4 +12,11 @@ class Laboran_model  {
         $this->db->query('SELECT * FROM ' . $this->table);
         return $this->db->resultSet();
     }
+
+    public function getLaboranById($id)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_laboran = :id');
+        $this->db->bind('id', $id);
+        return $this->db->single();
+    }
 }

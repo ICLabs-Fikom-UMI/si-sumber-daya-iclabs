@@ -42,7 +42,9 @@
                     </div>
                 </form>
 
-                <button class="btn btn-success" type="submit">LOGIN</button>
+                <a href="/tubesmvc/public/login/index">
+                    <button class="btn btn-success" type="">LOGIN</button>
+                </a>
             </div>
         </div>
     </div>
