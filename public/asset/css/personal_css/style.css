@@ -2,6 +2,15 @@ html {
   font-size: 16px;
 }
 
+.text-biru {
+  color: #0C1740;
+}
+
+.button-biru {
+  background-color: #0C1740;
+  color: white;
+}
+
 body {
   padding: 0;
   font-family: "Poppins", sans-serif;
@@ -9,8 +18,27 @@ body {
   margin: 0;
 }
 
+.form-login {
+  border-radius: 30px;
+  padding: 30px 70px 0 70px;
+  background-color: rgba(255, 255, 255, 0.46);
+  margin-top: 8rem;
+}
+
+.form-login .header h1 {
+  color: #0C1740;
+  font-weight: bold;
+  text-align: center;
+}
+
 section {
-  padding-top: .1rem !important;
+  padding-top: 0.1rem !important;
+}
+
+.bgImage {
+  background-image: url("/tubesmvc/public/asset/image/background/startup.png");
+  background-position: 0px -300px;
+  background-repeat: no-repeat;
 }
 
 .top-navbar {
@@ -49,4 +77,9 @@ section {
 
 .mt-n1 {
   margin-top: -1rem !important;
+}
+
+.formku {
+  height: 3rem;
+  border-radius: 30px;
 }
