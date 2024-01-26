@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,4 +22,29 @@
 
 <body class="bgImage">
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Halaman <?= $data['judul'] ?></title>
+
+  <link rel="stylesheet" href="/tubesmvc/public/asset/css/bootstrap.css" />
+  <link rel="stylesheet" href="/tubesmvc/public/asset/css/personal_css/style.css">
+
+  <!-- bootstrap icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- poppins regular -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+</head>
+
+<body class="bgImage">
+
+>>>>>>> c95246166e96f463a7b4b95b6190081f1b993c7b
 </html>
