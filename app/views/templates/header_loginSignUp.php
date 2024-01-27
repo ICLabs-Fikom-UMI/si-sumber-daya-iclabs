@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +21,7 @@
 
 <body class="bgImage">
 
-=======
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,5 +45,5 @@
 
 <body class="bgImage">
 
->>>>>>> c95246166e96f463a7b4b95b6190081f1b993c7b
+
 </html>
