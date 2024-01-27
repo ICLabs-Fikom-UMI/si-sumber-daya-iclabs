@@ -115,7 +115,13 @@ body {
   padding: 0;
   font-family: "Poppins", sans-serif;
   height: 100vh;
-  margin: 0;
+}
+
+.form-signup {
+  border-radius: 30px;
+  padding: 30px 70px 0 70px;
+  background-color: rgba(255, 255, 255, 0.46);
+  margin-top: 6rem;
 }
 
 .form-login {
@@ -175,11 +181,20 @@ section {
   text-align: start;
 }
 
-.mt-n1 {
-  margin-top: -1rem !important;
-}
-
 .formku {
   height: 3rem;
   border-radius: 30px;
+}
+
+.profile {
+  margin-left: 31rem;
+}
+
+.dibawah-topbar {
+  margin-top: 6rem;;
+
+}
+
+.foto-profile {
+  max-height: 10rem;
 }
