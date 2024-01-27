@@ -13,71 +13,34 @@ class Login extends Controller
 
     public function login()
     {
-        // Ambil data dari form login
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $data['login'] = $this->model('user_model')->getUser($email, $password);
-        var_dump($data['login']);
+        $role = $this->model('User_model')->getRoleByEmail($email);
 
-        
-    }
+        echo var_dump($_POST);
+        echo "<br></br>";
 
-}
-=======
-<?php
-class Login extends Controller
-{
+        $id_user = $this->model('User_model')->validateLogin($email, $password);
 
-    public function index()
-    {
-        $data['judul'] = 'Login';
-        $this->view('templates/header_loginSignup');
-        $this->view('templates/top_navbar_loginSIgnup');
-        $this->view('login/index', $data);
-        $this->view('templates/footer');
-    }
+        if ($id_user) {
+            echo "Berhasil Login";
 
-    public function login()
-    {
-        // Ambil data dari form login
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-
-        // Panggil model untuk validasi login
-        $userModel = $this->model('user_model');
-        $user = $userModel->getUserByEmail($email);
-
-        // Verifikasi password
-        if ($user && password_verify($password, $user['password'])) {
-            // Login berhasil
-            session_start();
-            $_SESSION['user_id'] = $user['id'];
-
-            // Cek peran (role) user
-            if ($user['role'] == 'Admin') {
-                // Redirect ke halaman admin
-                echo 'Kamu admin';
-                // header('Location: /admin/dashboard');
-            } elseif ($user['role'] == 'Kepala Lab') {
-                // Redirect ke halaman user
-                echo 'Kamu kepala lab';
-                // header('Location: /user/dashboard'); 
-            } elseif ($user['role'] == 'Laboran') {
-                // Redirect ke halaman user
-                echo 'Kamu Laboran';
-                // header('Location: /user/dashboard'); 
-            } elseif ($user['role'] == 'Asisten') {
-                // Redirect ke halaman user
-                echo 'Kamu Asisten';
-                // header('Location: /user/dashboard'); 
+            $is_password_default = $this->model('User_model')->isDefaultPassword($password);
+            // [PENTINGJ] hapus tanda (!) negasi untuk sementara untuk mengabaikan password default
+            if (!$is_password_default) {
+                // header('Location: change-default-password.php');
+                echo "Password Default";
                 exit();
             } else {
-                // Login gagal, tampilkan pesan error atau redirect kembali ke halaman login
-                echo "Email atau password salah.";
-                // header('Location: /login'); // Jika ingin redirect kembali ke halaman login
+                $_SESSION['id_user'] = $id_user;
+                $_SESSION['role_user'] = $role['role'];
+                header('Location: ' . BASEURL . '/daftarNilai');
+                exit;
             }
+        } else {
+            echo "Email Atau Password Salah";
         }
     }
+
 }
->>>>>>> c95246166e96f463a7b4b95b6190081f1b993c7b
