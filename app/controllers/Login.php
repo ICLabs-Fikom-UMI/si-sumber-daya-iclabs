@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 class Login extends Controller
 {
