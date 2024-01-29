@@ -26,5 +26,9 @@
                 </li>
             </ul>
         </div>
+
+        <a href="/tubesmvc/public/login/index">
+            <button class="btn btn-danger" type="">LOGOUT</button>
+        </a>
     </div>
 </nav>
