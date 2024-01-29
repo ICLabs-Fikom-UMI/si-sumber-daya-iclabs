@@ -1,3 +1,3 @@
 <?php
 
-define('BASEURL', 'https://localhost:8080/tubesmvc/public');
+define('BASEURL', 'http://localhost:8080/tubesmvc/public');
