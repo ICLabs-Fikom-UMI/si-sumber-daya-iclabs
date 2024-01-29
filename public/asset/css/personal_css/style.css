@@ -35,12 +35,6 @@ section {
   padding-top: 0.1rem !important;
 }
 
-.bgImage {
-  background-image: url("/tubesmvc/public/asset/image/background/startup.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .top-navbar {
   background-color: #0c1740;
 }
