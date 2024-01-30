@@ -1,6 +1,6 @@
 <div class="container-fluid d-flex justify-content-center form-lengkapi-profil flex-column">
     <h3 class="fs-3 text-center mb-5">Lengkapi Profile</h3>
-    <form action="/tubesmvc/public/Profile/tambah" method="post">
+    <form action="/tubesmvc/public/Profile_Asisten/tambah" method="post">
         <div class="container mb-4">
             <label class="fs-6" for="nama_lengkap">Nama Lengkap <span class="text-danger">*</span></label><br>
             <input type="text" name="nama_lengkap" id="nama_lengkap" class="input-text-profile rounded-3" placeholder="Masukkan Nama Lengkap Anda" required>
