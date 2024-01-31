@@ -1,13 +1,20 @@
 <div class="container-fluid d-flex justify-content-center form-lengkapi-profil flex-column">
     <h3 class="fs-3 text-center mb-5">Lengkapi Profile</h3>
-    <form action="">
+    <form action="/tubesmvc/public/Profile_KepLab/tambah/" method="post">
         <div class="container mb-4">
-            <label class="fs-6" for="nama_lengkap">Nama Lengkap <span class="text-danger">*</span></label><br>
-            <input type="text" name="nama_lengkap" id="nama_lengkap" class="input-text-profile rounded-3" placeholder="Masukkan Nama Lengkap Anda" required>
+            <label class=" fs-6" for="nama_kepala_lab">Nama Lengkap <span class="text-danger">*</span></label><br>
+            <input type="text" name="nama_kepala_lab" id="nama_kepala_lab" class="input-text-profile rounded-3" placeholder="Masukkan Nama Lengkap Anda" required>
         </div>
         <div class="container mb-4">
             <label class="fs-6" for="nidn">NIDN <span class="text-danger">*</span></label><br>
             <input type="text" name="nidn" id="nidn" class="input-text-profile rounded-3" placeholder="Masukkan NIDN Anda" required>
+        </div>
+        <div class="container mb-4">
+            <p>Dosen Prodi <span class="text-danger">*</span></p>
+            <input type="radio" name="prodi" id="prodi" value="Teknik Informatika">
+            <label for="prodi" class="me-4">Teknik Informatika</label>
+            <input type="radio" name="prodi" id="prodi" value="Sistem Informasi">
+            <label for="prodi">Sistem Informasi</label>
         </div>
         <div class="container mb-4">
             <label class="fs-6" for="email">Email <span class="text-danger">*</span></label><br>
@@ -43,7 +50,7 @@
                 </div>
                 <div class="d-flex flex-column">
                     <label for="selesai_menjabat">Tahun Selesai Menjabat</label>
-                    <select class="form-select" aria-label="Default select example" name="selesai_menjabat" id="selesai_menjabat" required>
+                    <select class="form-select" aria-label="Default select example" name="selesai_menjabat" id="selesai_menjabat">
                         <option selected>-- Pilih Tahun --</option>
                         <?php
                         for ($i = 2000; $i <= 2024; $i++) {
@@ -53,9 +60,13 @@
                     </select>
                 </div>
                 <div class="d-flex align-items-center ">
-                    <input class="me-2" type="checkbox" name="masih_menjabat" id="masih_menjabat" required>
+                    <input class="me-2" type="checkbox" name="masih_menjabat" id="masih_menjabat">
                     <label for="masih_menjabat">Masih Menjabat
                 </div>
+            </div>
+            <div class="container mb-4">
+                <label class="fs-6" for="lulusan">Lulusan Universitas <span class="text-danger">*</span></label><br>
+                <input type="text" name="lulusan" id="lulusan" class="input-text-profile rounded-3" placeholder="ex. Universitas Muslim Indonesia" required>
             </div>
             <div class="container mb-4">
                 <label class="fs-6" for="bidang_keahlian">Bidang Keahlian <span class="text-danger">*</span></label><br>
