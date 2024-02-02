@@ -58,7 +58,11 @@ class Database
     // function untuk mengeksekusi query
     public function execute()
     {
-        $this->stmt->execute();
+        try {
+            $this->stmt->execute();
+        } catch (Exception $e) {
+            echo $e;
+        }
     }
 
     // function untuk mengambil banyak data
