@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg top-navbar navbar-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand fw-bold text-white me-5" href="#">
-            <img src="/tubesmvc/public/asset/image/logo.png" alt="Logo" width="76" height="44" class="d-inline-block align-text-center">
+            <img src="http://localhost:8080/tubesmvc/public/asset/image/logo.png" alt="Logo" width="76" height="44" class="d-inline-block align-text-center">
             ICLABS
         </a>
         <button class="navbar-toggler navbar-toggler-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,7 @@
                     </div>
                 </form>
 
-                <a href="/tubesmvc/public/login/index">
+                <a href="http://localhost:8080/tubesmvc/public/login/index">
                     <button class="btn btn-success" type="">LOGIN</button>
                 </a>
             </div>
