@@ -28,6 +28,7 @@ class Home extends Controller
     {
         $data['judul'] = 'Detail Sumber Daya';
         $data['laboran'] = $this->model('laboran_model')->getLaboranById($id_laboran);
+        // var_dump($data);
         $this->view('templates/header', $data);
         $this->view('templates/top_navbar_page');
         $this->view('home/detail_laboran', $data);

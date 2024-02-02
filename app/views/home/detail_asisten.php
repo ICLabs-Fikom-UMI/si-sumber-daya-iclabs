@@ -2,7 +2,7 @@
     <div class="col-md-4">
         <!-- Konten container pertama -->
         <div class="card">
-            <img src="../../../public/asset/image/<?= $data['asisten']['foto_detail'] ?>" class="card-img-top object-fit-cover vh-100" style="object-position: center; height: 330.333px;" alt="Card Image">
+            <img src="../../<?= $data['asisten']['foto'] ?>" class="card-img-top object-fit-cover vh-100" style="object-position: center; height: 330.333px;" alt="Card Image">
             <div class="card-info-box">
                 <div class="center ms-2 fs-6">
                     <span>
