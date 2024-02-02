@@ -1,9 +1,10 @@
 <div class="container-fluid d-flex justify-content-center form-lengkapi-profil flex-column">
     <h3 class="fs-3 text-center mb-5">Lengkapi Profile</h3>
-    <form action="/tubesmvc/public/Profile_Asisten/tambah" method="post">
+    <form action="http://localhost:8080/tubesmvc/public/Profile_Asisten/tambah/ <?= $_SESSION['id_user'] ?>" method="post" enctype="multipart/form-data">
         <div class="container mb-4">
-            <label class="fs-6" for="nama_lengkap">Nama Lengkap <span class="text-danger">*</span></label><br>
-            <input type="text" name="nama_lengkap" id="nama_lengkap" class="input-text-profile rounded-3" placeholder="Masukkan Nama Lengkap Anda" required>
+            <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>">
+            <label class="fs-6" for="nama_asisten">Nama Lengkap <span class="text-danger">*</span></label><br>
+            <input type="text" name="nama_asisten" id="nama_asisten" class="input-text-profile rounded-3" placeholder="Masukkan Nama Lengkap Anda" required>
         </div>
         <div class="container mb-4">
             <label class="fs-6" for="nim">NIM <span class="text-danger">*</span></label><br>
@@ -33,11 +34,9 @@
             <input type="text" name="no_telp" id="no_telp" class="input-text-profile rounded-3" placeholder="Masukkan Nomor Telepon Anda" required>
         </div>
         <div class="container mb-4">
-            <label class="fs-6" for="foto_profil">Foto Profil <span class="text-danger">*</span></label>
+            <label class="fs-6" for="foto">Foto Profil <span class="text-danger">*</span></label>
             <div class="container d-flex align-items-center mb-3">
-                <img src="" class="me-3"></img>
-                <button class="rounded-3" style="display:block;width:120px; height:40px;" onclick="document.getElementById('foto_profil').click()">Pilih Foto</button>
-                <input type='file' id="foto_profil" style="display:none" required>
+                <input type="file" name="foto" id="foto" accept="image/*" placeholder="Pilih foto" />
             </div>
             <p>Ketentuan Foto:</p>
             <ul style="list-style-type: circle; margin-top: -1rem;">
@@ -61,19 +60,19 @@
 
             </div>
             <div class="container mb-4">
-                <label class="fs-6" for="keahlian">Bidang Keahlian <span class="text-danger">*</span></label><br>
-                <input type="text" name="keahlian" id="keahlian" class="input-text-profile rounded-3" placeholder="ex. Pemrograman Mobile, Desain Grafis, dll" required>
+                <label class="fs-6" for="bidang_keahlian">Bidang Keahlian <span class="text-danger">*</span></label><br>
+                <input type="text" name="bidang_keahlian" id="bidang_keahlian" class="input-text-profile rounded-3" placeholder="ex. Pemrograman Mobile, Desain Grafis, dll" required>
                 <p>note: pisahkan menggunakan tanda koma (,)</p>
             </div>
             <div class="container mb-4">
-                <label class="fs-6" for="matkul_praktikum">Praktikum Yang Diajar <span class="text-danger">*</span></label><br>
-                <input type="text" name="matkul_praktikum" id="matkul_praktikum" class="input-text-profile rounded-3" placeholder="ex. Artificial Intellegnce, FrontEnd Web, dll" required>
+                <label class="fs-6" for="riwayat_matkul">Praktikum Yang Diajar <span class="text-danger">*</span></label><br>
+                <input type="text" name="riwayat_matkul" id="riwayat_matkul" class="input-text-profile rounded-3" placeholder="ex. Artificial Intellegnce, FrontEnd Web, dll" required>
                 <p>note: pisahkan menggunakan tanda koma (,)</p>
             </div>
             <div class="container mb-4">
                 <label class="fs-6" for="deskripsi">Deskripsi <span class="text-danger">*</span></label><br>
                 <div class="form-floating">
-                    <textarea name="deskripsi" id="deskripsi" cols="100%" rows="30" class="rounded-3" placeholder="Deskripsikan Diri Anda" required></textarea>
+                    <textarea name="deskripsi" id="deskripsi" cols="100%" rows="10" class="rounded-3" placeholder="Deskripsikan Diri Anda" required></textarea>
                 </div>
             </div>
         </div>
@@ -83,3 +82,4 @@
         </div>
     </form>
 </div>
+

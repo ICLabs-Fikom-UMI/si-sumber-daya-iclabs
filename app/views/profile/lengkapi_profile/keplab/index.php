@@ -1,9 +1,10 @@
 <div class="container-fluid d-flex justify-content-center form-lengkapi-profil flex-column">
     <h3 class="fs-3 text-center mb-5">Lengkapi Profile</h3>
-    <form action="/tubesmvc/public/Profile_KepLab/tambah/" method="post">
+    <form action="http://localhost:8080/tubesmvc/public/Profile_KepLab/tambah/ <?= $_SESSION['id_user'] ?>" method="post" enctype="multipart/form-data">
         <div class="container mb-4">
+            <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>">
             <label class=" fs-6" for="nama_kepala_lab">Nama Lengkap <span class="text-danger">*</span></label><br>
-            <input type="text" name="nama_kepala_lab" id="nama_kepala_lab" class="input-text-profile rounded-3" placeholder="Masukkan Nama Lengkap Anda" required>
+            <input type="text" name="nama_kepala_lab" id="nama_kepala_lab" class="input-text-profile rounded-3 form-control" placeholder="Masukkan Nama Lengkap Anda" required>
         </div>
         <div class="container mb-4">
             <label class="fs-6" for="nidn">NIDN <span class="text-danger">*</span></label><br>
@@ -25,14 +26,12 @@
             <input type="text" name="no_telp" id="no_telp" class="input-text-profile rounded-3" placeholder="Masukkan Nomor Telepon Anda" required>
         </div>
         <div class="container mb-4">
-            <label class="fs-6" for="foto_profil">Foto Profil <span class="text-danger">*</span></label>
+            <label class="fs-6" for="foto">Foto Profil <span class="text-danger">*</span></label>
             <div class="container d-flex align-items-center mb-3">
-                <img src="" class="me-3"></img>
-                <button class="rounded-3" style="display:block;width:120px; height:40px;" onclick="document.getElementById('foto_profil').click()">Pilih Foto</button>
-                <input type='file' id="foto_profil" style="display:none" required>
+                <input type="file" name="foto" id="foto" accept="image/*" placeholder="Pilih foto" />
             </div>
             <p>Ketentuan Foto:</p>
-            <ul style="list-style-type: circle; margin-top: -1rem;">
+            <ul class="mb-4" style="list-style-type: circle; margin-top: -1rem;">
                 <li>Maksimal 2 MB</li>
                 <li>Ukuran Foto</li>
             </ul>
@@ -49,19 +48,17 @@
                     </select>
                 </div>
                 <div class="d-flex flex-column">
-                    <label for="selesai_menjabat">Tahun Selesai Menjabat</label>
-                    <select class="form-select" aria-label="Default select example" name="selesai_menjabat" id="selesai_menjabat">
+                    <label for="selesai_menjabat">Tahun Selesai Menjabat <span class="text-danger">*</span></label>
+                    <select class="form-select" aria-label="Default select example" name="selesai_menjabat" id="selesai_menjabat" required>
                         <option selected>-- Pilih Tahun --</option>
+                        <option value="Sekarang">Sekarang</option>
+                        </option>
                         <?php
-                        for ($i = 2000; $i <= 2024; $i++) {
-                            echo "<option value=\"$i\">$i</option>";
+                        for ($x = 2000; $x <= 2024; $x++) {
+                            echo "<option value=\"$x\">$x</option>";
                         }
                         ?>
                     </select>
-                </div>
-                <div class="d-flex align-items-center ">
-                    <input class="me-2" type="checkbox" name="masih_menjabat" id="masih_menjabat">
-                    <label for="masih_menjabat">Masih Menjabat
                 </div>
             </div>
             <div class="container mb-4">
@@ -76,7 +73,7 @@
             <div class="container mb-4">
                 <label class="fs-6" for="deskripsi">Deskripsi <span class="text-danger">*</span></label><br>
                 <div class="form-floating">
-                    <textarea name="deskripsi" id="deskripsi" cols="100%" rows="30" class="rounded-3" placeholder="Deskripsikan Diri Anda" required></textarea>
+                    <textarea name="deskripsi" id="deskripsi" cols="100%" rows="10" class="rounded-3" placeholder="Deskripsikan Diri Anda" required></textarea>
                 </div>
             </div>
         </div>
