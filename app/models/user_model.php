@@ -1,7 +1,7 @@
 <?php
 class User_model
 {
-    private $table = 'mst_user';
+    private $table_user = 'mst_user';
     private $db;
 
     public function __construct()
@@ -12,7 +12,7 @@ class User_model
     public function login($email, $password)
     {
         try {
-            $query = 'SELECT * FROM ' . $this->table . ' WHERE email = :email';
+            $query = 'SELECT * FROM ' . $this->table_user . ' WHERE email = :email';
             $this->db->query($query);
             $this->db->bind(':email', $email);
 
@@ -35,96 +35,100 @@ class User_model
     public function getRoleByEmail($email)
     {
         try {
-            $query = 'SELECT role FROM ' . $this->table . ' WHERE email = :email';
+            $query = 'SELECT role, id_user FROM ' . $this->table_user . ' WHERE email = :email';
             $this->db->query($query);
             $this->db->bind(':email', $email);
 
             $row = $this->db->single();
 
             if ($row) {
-                return $row['role']; // Kembalikan role user
+                return $row; // Kembalikan role user
             } else {
                 return false; // User tidak ditemukan
             }
         } catch (Exception $e) {
             echo $e;
         }
+
     }
 
-    public function getUserById($idUser) {
-        $query = 'SELECT * FROM ' . $this->table . ' WHERE id_user = :id_user';
+    public function getUserById($idUser)
+    {
+        $query = 'SELECT * FROM ' . $this->table_user . 'INNER JOIN  WHERE id_user = :id_user';
         $this->db->query($query);
         $this->db->bind(':id_user', $idUser);
 
         return $this->db->single();
     }
-        //     public function getRoleByEmail($email){
-        //         $query = 'SELECT role FROM ' . $this->table . ' WHERE email = :email';
 
-        //         $this->db->query($query);
-        //         $this->db->bind('email', $email);
 
-        //         return $this->db->single();
-        //     }
+    //     public function getRoleByEmail($email){
+    //         $query = 'SELECT role FROM ' . $this->table_user . ' WHERE email = :email';
 
-        //     public function validateLogin($email, $password)
-        //     {
-        //         $query = 'SELECT id_user, password FROM ' . $this->table . ' WHERE email = :email and password = password(:password)';
+    //         $this->db->query($query);
+    //         $this->db->bind('email', $email);
 
-        //         $this->db->query($query);
-        //         $this->db->bind('email', $email);
-        //         $this->db->bind('password', $password);
+    //         return $this->db->single();
+    //     }
 
-        //         $result = $this->db->single();
+    //     public function validateLogin($email, $password)
+    //     {
+    //         $query = 'SELECT id_user, password FROM ' . $this->table . ' WHERE email = :email and password = password(:password)';
 
-        //         if ($result) {
-        //             return $result['id_user'];
-        //         } else {
-        //             return false;
-        //         }
-        //     }
+    //         $this->db->query($query);
+    //         $this->db->bind('email', $email);
+    //         $this->db->bind('password', $password);
 
-        //     public function getUser($email, $password)
-        //     {
-        //         // $this->db->query('SELECT * FROM' . $this->table . ''  WHERE email = :email AND password = :password");
-        //         $this->db->bind('email', $email);
-        //         $this->db->bind('password', $password);
+    //         $result = $this->db->single();
 
-        //         return $this->db->resultSet();
-        //     }
+    //         if ($result) {
+    //             return $result['id_user'];
+    //         } else {
+    //             return false;
+    //         }
+    //     }
 
-        //     // signup mulai
+    //     public function getUser($email, $password)
+    //     {
+    //         // $this->db->query('SELECT * FROM' . $this->table . ''  WHERE email = :email AND password = :password");
+    //         $this->db->bind('email', $email);
+    //         $this->db->bind('password', $password);
 
-        //     public function registerUser($email, $password, $registrationCode)
-        //     {
-        //         // Validasi kode pendaftaran dan tentukan peran
-        //         $email = $_POST['email'];
-        //         $password = $_POST['password'];
-        //         $kodePendaftaran = $_POST['kode_pendaftaran'];
+    //         return $this->db->resultSet();
+    //     }
 
-        //         $role = $this->validateRegistrationCode($registrationCode);
+    //     // signup mulai
 
-        //         // Simpan data user ke dalam database (lakukan query INSERT)
-        //         $this->db->query('INSERT INTO ' . $this->table . '(email, password, role) VALUES (:email, :password, :role)"');
-        //         $this->db->bind(':email', $email);
-        //         $this->db->bind(':password', $password);
-        //         $this->db->bind(':role', $kodePendaftaran);
+    //     public function registerUser($email, $password, $registrationCode)
+    //     {
+    //         // Validasi kode pendaftaran dan tentukan peran
+    //         $email = $_POST['email'];
+    //         $password = $_POST['password'];
+    //         $kodePendaftaran = $_POST['kode_pendaftaran'];
 
-        //         return $this->db->execute();
-        //     }
+    //         $role = $this->validateRegistrationCode($registrationCode);
 
-        //     private function validateRegistrationCode($registrationCode)
-        //     {
-        //         // Tentukan peran berdasarkan kode pendaftaran
-        //         switch ($registrationCode) {
-        //             case 'K84PLZDJ':
-        //                 return 'Kepala Lab';
-        //             case 'HFYJ7SW4':
-        //                 return 'Laboran';
-        //             case 'BS4GW6EG':
-        //                 return 'Asisten Lab';
-        //         }
-        //     }
+    //         // Simpan data user ke dalam database (lakukan query INSERT)
+    //         $this->db->query('INSERT INTO ' . $this->table . '(email, password, role) VALUES (:email, :password, :role)"');
+    //         $this->db->bind(':email', $email);
+    //         $this->db->bind(':password', $password);
+    //         $this->db->bind(':role', $kodePendaftaran);
 
-        //     // signup selesai
+    //         return $this->db->execute();
+    //     }
+
+    //     private function validateRegistrationCode($registrationCode)
+    //     {
+    //         // Tentukan peran berdasarkan kode pendaftaran
+    //         switch ($registrationCode) {
+    //             case 'K84PLZDJ':
+    //                 return 'Kepala Lab';
+    //             case 'HFYJ7SW4':
+    //                 return 'Laboran';
+    //             case 'BS4GW6EG':
+    //                 return 'Asisten Lab';
+    //         }
+    //     }
+
+    //     // signup selesai
 }
