@@ -136,9 +136,9 @@ section {
 }
 
 .bgImage {
-  background-image: url("/tubesmvc/public/asset/image/background/startup.png");
+  background-image: url("http://localhost:8080/tubesmvc/public/asset/image/background/startup.png");
   background-position: 0px -300px;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
 }
 
 .top-navbar {
@@ -180,10 +180,6 @@ section {
   border-radius: 30px;
 }
 
-.profile {
-  margin-left: 31rem;
-}
-
 .dibawah-topbar {
   margin-top: 6rem;;
 
@@ -192,4 +188,3 @@ section {
 .foto-profile {
   max-height: 10rem;
 }
-
