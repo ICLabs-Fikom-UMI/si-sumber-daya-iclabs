@@ -12,7 +12,7 @@
 	- Menampilkan informasi kepada mahasiswa/praktikan identitas dari sumber daya iclabs. Yang didalamnya sudah termasuk kepala lab, laboran, dan asisten lab.
 	- Memudahkan para mahasiswa/praktikan maupun orang yang berkepentingan dalam mencari kontak maupun identitas dari sumber daya iclabs yang mereka butuhkan, yang ditampilkan dalam bentuk web yang mudah digunakan dan mudah diakses.
 	- Menampilkan orang-orang penting yang pernah menjadi sumber daya iclabs mulai 	  dari angkatan-angkatan terdahulu hingga sekarang
-- HTML 5, css, PHP, Bootstrap v5.3, Bootstrap icons, Google Font Api, jsDelivr...
+- PHP, css, Bootstrap v5.3, Bootstrap icons, Google Font Api, javascript
 
 ### Fitur MVP Aplikasi
 - Menampilkan informasi mengenai sumber daya iclabs mulai dari angkatan-angkatan terdahulu hingga sekarang
