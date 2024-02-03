@@ -5,7 +5,6 @@ class Signup extends Controller
     public function index()
     {
         $data['judul'] = 'Signup';
-        // $data = $this->model('User_model')->registerUser())
         $this->view('templates/header_loginSignUp', $data);
         $this->view('templates/top_navbar_loginSignup');
         $this->view('signup/index', $data);
