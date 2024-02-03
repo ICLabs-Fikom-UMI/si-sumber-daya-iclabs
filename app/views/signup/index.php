@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center">
-  <form action="http://localhost:8080/tubesmvc/public/Signup/register" method="post" class="form-signup">
+  <form action="http://localhost:8080/tubesmvc/public/Signup/signup" method="post" class="form-signup">
     <div class="header">
       <h1>SIGN UP</h1>
     </div>
@@ -16,13 +16,6 @@
       <div class="input-group">
         <span class="input-group-text formku"><i class="bi bi-lock"></i></span>
         <input type="password" class="form-control formku" id="password" placeholder="Masukkan password Anda" name="password" required />
-      </div>
-    </div>
-    <div class="form-group mb-4">
-      <label for="no_telp" class="form-label text-biru">No. Handphone</label>
-      <div class="input-group">
-        <span class="input-group-text formku"><i class="bi bi-telephone"></i></span>
-        <input type="number" class="form-control formku" id="no_telp" placeholder="Masukkan No. Handphone" name="no_telp" required />
       </div>
     </div>
     <div class="form-group mb-4">
