@@ -61,13 +61,13 @@ class User_model
     }
 
     // signup mulai
-    public function registerUser($email, $password, $kodeRegistrasi)
+    public function registerUser($email, $password, $role)
     {
         // Simpan data user ke dalam database (lakukan query INSERT)
         $this->db->query('INSERT INTO ' . $this->table_user . '(email, password, role) VALUES (:email, :password, :role)');
         $this->db->bind(':email', $email);
         $this->db->bind(':password', $password);
-        $this->db->bind(':role', $kodeRegistrasi);
+        $this->db->bind(':role', $role);
 
         return $this->db->execute();
     }
@@ -86,7 +86,6 @@ class User_model
                 return false;
         }
     }
-        // signup selesai
-}
+    // signup selesai
 
-    
+}
