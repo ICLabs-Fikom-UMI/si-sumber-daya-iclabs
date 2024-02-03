@@ -4,7 +4,7 @@
         <div class="container mb-4">
             <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>">
             <label class=" fs-6" for="nama_kepala_lab">Nama Lengkap <span class="text-danger">*</span></label><br>
-            <input type="text" name="nama_kepala_lab" id="nama_kepala_lab" class="input-text-profile rounded-3 form-control" placeholder="Masukkan Nama Lengkap Anda" required>
+            <input type="text" name="nama_kepala_lab" id="nama_kepala_lab" class="input-text-profile rounded-3" placeholder="Masukkan Nama Lengkap Anda" required>
         </div>
         <div class="container mb-4">
             <label class="fs-6" for="nidn">NIDN <span class="text-danger">*</span></label><br>
