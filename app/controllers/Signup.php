@@ -19,13 +19,9 @@ class Signup extends Controller
 
         $role = $this->model('User_model')->cekKodeRegistrasi($kodePendaftaran);
 
-        if ($role == false){
+        if ($role == false) {
             header("Location: http://localhost:8080/tubesmvc/public/Signup");
         } else {
-            $role = $this->model('User_model')->getRoleByEmail($email);
-
-            
-
             $this->model('User_model')->registerUser($email, $pass, $role);
             header("Location: http://localhost:8080/tubesmvc/public/Login");
         }
