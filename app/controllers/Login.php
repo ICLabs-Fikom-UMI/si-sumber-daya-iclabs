@@ -38,6 +38,13 @@ class Login extends Controller
 
                         if ($idUser['kepala_lab'] == false) {
                             $this->model('KepalaLab_model')->insertIduser($user['id_user']);
+                            $idKepalaLab = $this->model('KepalaLab_model')->getIdKepalaLabByIdUser($user['id_user']);
+
+                            try {
+                                $this->model('KepalaLab_model')->insertIdUserIntoTrxTable($idKepalaLab['id_kepala_lab']);
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
                         }
 
                         $userData = $this->model('KepalaLab_model')->getDataKepalaLabByUserId($user['id_user']);
@@ -59,11 +66,16 @@ class Login extends Controller
                         }
                     } else if ($role['role'] == 'Laboran') {
                         $idUser['laboran'] = $this->model('Laboran_model')->checkIdUser($user['id_user']);
-                        var_dump($idUser);
-
 
                         if ($idUser['laboran'] == false) {
                             $this->model('Laboran_model')->insertIduser($user['id_user']);
+                            $idLaboran = $this->model('Laboran_model')->getIdLaboranByIdUser($user['id_user']);
+
+                            try {
+                                $this->model('Laboran_model')->insertIdUserIntoTrxTable($idLaboran['id_laboran']);
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
                         }
 
                         $userData = $this->model('Laboran_model')->getDataLaboranByUserId($user['id_user']);
@@ -88,6 +100,18 @@ class Login extends Controller
 
                         if ($idUser['asisten'] == false) {
                             $this->model('Asisten_model')->insertIduser($user['id_user']);
+
+                            try {
+                                $idAsisten = $this->model('Asisten_model')->getIdAsistenByIdUser($user['id_user']);
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+
+                            try {
+                                $this->model('Asisten_model')->insertIdUserIntoTrxTable($idAsisten['id_asisten']);
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
                         }
 
                         $userData = $this->model('Asisten_model')->getDataAsistenByUserId($user['id_user']);
