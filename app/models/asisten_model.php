@@ -103,4 +103,24 @@ class Asisten_model
             return false;
         }
     }
+
+    public function getIdAsistenByIdUser($id_user)
+    {
+        $this->db->query('SELECT id_asisten FROM ' . $this->table . ' WHERE id_user = :id');
+        $this->db->bind(':id', $id_user);
+        return $this->db->single();
+    }
+
+    public function insertIdUserIntoTrxTable($id_user)
+    {
+        try {
+            $this->db->query("INSERT INTO `trx_sumber_daya_lab` (`id_asisten`) VALUES (:id_asisten)");
+            $this->db->bind(':id_asisten', $id_user);
+
+            return $this->db->execute();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 }

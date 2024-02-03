@@ -93,7 +93,6 @@ class KepalaLab_model
         }
     }
 
-
     public function insertIduser($idUser)
     {
         $query = "INSERT INTO " . $this->table . " (id_user) VALUES (:id_user)";
@@ -101,5 +100,26 @@ class KepalaLab_model
         $this->db->query($query);
         $this->db->bind(':id_user', $idUser);
         $this->db->execute();
+    }
+
+    public function getIdKepalaLabByIdUser($idKepalab)
+    {
+        $this->db->query('SELECT id_kepala_lab FROM ' . $this->table . ' WHERE id_user = :id');
+        $this->db->bind('id', $idKepalab);
+        return $this->db->single();
+    }
+
+    public function insertIdUserIntoTrxTable($id_user)
+    {
+        try {
+
+            $this->db->query("INSERT INTO `trx_sumber_daya_lab` (`id_kepala_lab`) VALUES (:id_kepala_lab)");
+            $this->db->bind(':id_kepala_lab', $id_user);
+
+            return $this->db->execute();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
 }

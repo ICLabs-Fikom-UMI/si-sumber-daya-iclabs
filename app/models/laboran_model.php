@@ -93,4 +93,25 @@ class Laboran_model  {
             echo $e->getMessage();
         }
     }
+
+    public function getIdLaboranByIdUser($idLaboran)
+    {
+        $this->db->query('SELECT id_laboran FROM ' . $this->table . ' WHERE id_user = :id');
+        $this->db->bind('id', $idLaboran);
+        return $this->db->single();
+    }
+
+    public function insertIdUserIntoTrxTable($id_user)
+    {
+        try {
+
+            $this->db->query("INSERT INTO `trx_sumber_daya_lab` (`id_laboran`) VALUES (:id_laboran)");
+            $this->db->bind(':id_laboran', $id_user);
+
+            return $this->db->execute();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 }
