@@ -185,6 +185,27 @@ section {
 
 }
 
+.dibawah-topbar-rapat {
+  margin-top: 4.4rem;
+}
+
 .foto-profile {
   max-height: 10rem;
+}
+
+.sidebar {
+  width: 20vw;
+}
+
+.main-content {
+  width: 80vw;
+}
+
+.kotak-dashboard {
+  height: 133px;
+  width: 260px;
+}
+
+.person-image {
+  height: 50px;
 }
