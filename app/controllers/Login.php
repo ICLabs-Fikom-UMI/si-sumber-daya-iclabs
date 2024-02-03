@@ -32,7 +32,7 @@ class Login extends Controller
 
 
                     if ($role['role'] == 'Admin') {
-
+                        header("Location: http://localhost:8080/tubesmvc/public/Dashboard");
                     } else if ($role['role'] == 'Kepala Lab') {
                         $idUser['kepala_lab'] = $this->model('KepalaLab_model')->checkIdUser($user['id_user']);
 
