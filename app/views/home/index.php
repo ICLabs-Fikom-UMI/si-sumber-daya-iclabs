@@ -23,15 +23,15 @@
             <div class="card-info-box">
               <div class="center ms-0 fs-6">
                 <span>
-                  <img src="/asset/image/icon/univ.png" class="me-1">
+                  <img src="asset/image/icon/univ.png" class="me-1">
                   <?= $kepalaLab['lulusan'] ?>
                 </span><br>
                 <span>
-                  <img src="/asset/image/icon/nidn.png" class="me-1">
+                  <img src="asset/image/icon/nidn.png" class="me-1">
                   <?= $kepalaLab["nidn"] ?>
                 </span><br>
                 <span>
-                  <img src="/asset/image/icon/prodi.png" class="me-1">
+                  <img src="asset/image/icon/prodi.png" class="me-1">
                   <?= $kepalaLab["dosen_prodi"] ?>
                 </span>
               </div>
@@ -70,11 +70,11 @@
             <div class="card-info-box">
               <div class="center ms-0 fs-6">
                 <span>
-                  <img src="/asset/image/icon/univ.png" class="me-1">
+                  <img src="asset/image/icon/univ.png" class="me-1">
                   <?= $laboran['lulusan'] ?>
                 </span><br>
                 <span>
-                  <img src="/asset/image/icon/calendar.png" class="me-1">
+                  <img src="asset/image/icon/calendar.png" class="me-1">
                   <?= $laboran['mulai_menjabat'] . ' - ' . $laboran['selesai_menjabat'] ?>
                 </span>
               </div>
