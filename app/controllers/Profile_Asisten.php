@@ -36,6 +36,14 @@ class Profile_Asisten extends Controller {
 
     public function tambah($id_user)
     {
+        session_start();
+
+        // Pemeriksaan login
+        if (!isset($_SESSION['id_user'])) {
+            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            exit();
+        }
+        
         try {
             if ($this->model('Asisten_model')->tambah_data_asisten($_POST) > 0) {
                 header("Location: http://localhost:8080/tubesmvc/public/Profile_Asisten/detail_profile/" . $id_user);
