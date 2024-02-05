@@ -29,7 +29,7 @@ class Sumber_Daya_Model
         return $this->db->resultSet();
     }
 
-    
+
 
     public function getTotalSumberDaya()
     {
@@ -54,4 +54,60 @@ class Sumber_Daya_Model
         $this->db->query('SELECT COUNT(*) as total_asisten FROM mst_asisten');
         return $this->db->single();
     }
+
+    // Delete Data Kepala Lab Mulai
+    public function deleteDataKepLabById($id)
+    {
+        try {
+            $this->db->query('DELETE FROM ' . $this->table . ' WHERE id_kepala_lab = :id');
+            $this->db->bind(':id', $id);
+            $this->db->execute();
+
+            $this->db->query('DELETE FROM mst_kepala_lab WHERE id_kepala_lab = :id');
+            $this->db->bind(':id', $id);
+            $this->db->execute();
+
+            return $this->db->rowCount();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+    // Delete Data Kepala Lab Selesai
+
+    // Delete Data Laboran Mulai
+    public function deleteDataLaboranById($id)
+    {
+        try {
+            $this->db->query('DELETE FROM ' . $this->table . ' WHERE id_laboran = :id');
+            $this->db->bind(':id', $id);
+            $this->db->execute();
+
+            $this->db->query('DELETE FROM mst_laboran WHERE id_laboran = :id');
+            $this->db->bind(':id', $id);
+            $this->db->execute();
+
+            return $this->db->rowCount();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+    
+    // Delete Data Asisten Lab Selesai
+    public function deleteDataAsistenById($id)
+    {
+        try {
+            $this->db->query('DELETE FROM ' . $this->table . ' WHERE id_asisten = :id');
+            $this->db->bind(':id', $id);
+            $this->db->execute();
+
+            $this->db->query('DELETE FROM mst_asisten WHERE id_asisten = :id');
+            $this->db->bind(':id', $id);
+            $this->db->execute();
+
+            return $this->db->rowCount();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+    // Delete Data Asisten Lab Selesai
 }
