@@ -6,6 +6,40 @@
 <script>
     new DataTable('#example');
 </script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+    $('.btn_delete').on('click', function(event) {
+                event.preventDefault();
+                const href = $(this).attr('href');
+
+                const swalWithBootstrapButtons = Swal.mixin({
+                    customClass: {
+                        confirmButton: "btn btn-success ms-2",
+                        cancelButton: "btn btn-danger"
+                    },
+                    buttonsStyling: false
+                });
+                swalWithBootstrapButtons.fire({
+                    title: "Apakah Anda Yakin?",
+                    text: "Data Akan Menghilang Secara Permanent",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Hapus",
+                    cancelButtonText: "Batalkan",
+                    reverseButtons: true
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.location.href = href;
+                    } else if (result.dismiss === Swal.DismissReason.cancel) {
+                        swalWithBootstrapButtons.fire({
+                            title: "Cancelled",
+                            text: "Hapus Data Telah Dibatalkan",
+                            icon: "error"
+                        });
+                    }
+                });
+            });
+</script> -->
 </body>
 
 </html>
