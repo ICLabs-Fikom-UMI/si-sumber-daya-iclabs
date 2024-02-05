@@ -9,7 +9,7 @@ class Dashboard extends Controller
             header("Location: http://localhost:8080/tubesmvc/public/Login");
             exit();
         }
-        
+
         $data['judul'] = 'Dashboard';
         $data['kepala_lab'] = $this->model('Sumber_Daya_Model')->getAllSumberDayaKepalaLab();
         $data['laboran'] = $this->model('Sumber_Daya_Model')->getAllSumberDayaLaboran();
@@ -32,7 +32,7 @@ class Dashboard extends Controller
             header("Location: http://localhost:8080/tubesmvc/public/Login");
             exit();
         }
-        
+
         $data['judul'] = 'Dashboard';
         $data['kepala_lab'] = $this->model('Sumber_Daya_Model')->getAllSumberDayaKepalaLab();
         $this->view('templates/header_admin', $data);
@@ -41,6 +41,14 @@ class Dashboard extends Controller
         $this->view('admin/data_kepala_lab', $data);
         $this->view('templates/footer_admin');
     }
+
+    public function deleteDataKeplab($id)
+    {
+        $this->model('Sumber_Daya_Model')->deleteDataKepLabById($id);
+        header("Location: http://localhost:8080/tubesmvc/public/Dashboard/data_kepala_lab");
+        exit();
+    }
+
     public function data_laboran()
     {
         session_start();
@@ -48,7 +56,7 @@ class Dashboard extends Controller
             header("Location: http://localhost:8080/tubesmvc/public/Login");
             exit();
         }
-        
+
         $data['judul'] = 'Dashboard';
         $data['laboran'] = $this->model('Sumber_Daya_Model')->getAllSumberDayaLaboran();
         $this->view('templates/header_admin', $data);
@@ -57,6 +65,14 @@ class Dashboard extends Controller
         $this->view('admin/data_laboran', $data);
         $this->view('templates/footer_admin');
     }
+
+    public function deleteDataLaboran($id)
+    {
+        $this->model('Sumber_Daya_Model')->deleteDataLaboranById($id);
+        header("Location: http://localhost:8080/tubesmvc/public/Dashboard/data_laboran");
+        exit();
+    }
+
     public function data_asisten()
     {
         session_start();
@@ -64,7 +80,7 @@ class Dashboard extends Controller
             header("Location: http://localhost:8080/tubesmvc/public/Login");
             exit();
         }
-        
+
         $data['judul'] = 'Dashboard';
         $data['asisten'] = $this->model('Sumber_Daya_Model')->getAllSumberDayaAsisten();
         $this->view('templates/header_admin', $data);
@@ -72,5 +88,12 @@ class Dashboard extends Controller
         $this->view('templates/sidebar');
         $this->view('admin/data_asisten', $data);
         $this->view('templates/footer_admin');
+    }
+
+    public function deleteDataAsisten($id)
+    {
+        $this->model('Sumber_Daya_Model')->deleteDataAsistenById($id);
+        header("Location: http://localhost:8080/tubesmvc/public/Dashboard/data_asisten");
+        exit();
     }
 }
