@@ -122,4 +122,6 @@ class KepalaLab_model
             return false;
         }
     }
+
+    
 }
