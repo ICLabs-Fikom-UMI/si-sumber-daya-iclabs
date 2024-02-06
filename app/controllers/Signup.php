@@ -20,10 +20,14 @@ class Signup extends Controller
         $role = $this->model('User_model')->cekKodeRegistrasi($kodePendaftaran);
 
         if ($role == false) {
-            header("Location: http://localhost:8080/tubesmvc/public/Signup");
+            header("Location: " . BASEURL . "/Signup");
+            Flasher::setFlash('Kode Pendaftaran', 'Salah', 'danger');
+            exit();
         } else {
             $this->model('User_model')->registerUser($email, $pass, $role);
-            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            header("Location: " . BASEURL . "/Login");
+            Flasher::setFlash('Berhasil Mendaftar,', 'Silahkan Login', 'success');
+            exit();
         }
     }
 }

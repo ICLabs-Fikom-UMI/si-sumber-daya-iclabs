@@ -21,8 +21,12 @@ class Login extends Controller
                 $password = $_POST['password'];
 
                 $user = $this->model('User_model')->login($email, $password);
-
-                if ($user) {
+                
+                if($user == false) {
+                    header("Location: " . BASEURL . "/Login");
+                    Flasher::setFlash('Akun Belum', 'Terdaftar', 'danger');
+                    exit();
+                } else if ($user) {
                     $role = $this->model('User_model')->getRoleByEmail($email);
 
 
