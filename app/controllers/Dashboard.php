@@ -42,10 +42,39 @@ class Dashboard extends Controller
         $this->view('templates/footer_admin');
     }
 
+    public function detail_profile_kepLab($id)
+    {
+        session_start();
+        if (!isset($_SESSION['id_user'])) {
+            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            exit();
+        }
+
+        $data['judul'] = 'Edit Profile';
+        $data['kepala_lab'] = $this->model('KepalaLab_model')->getDataKepalaLabByUserId($id);
+        $this->view('templates/header_admin', $data);
+        $this->view('templates/top_navbar_admin');
+        $this->view('admin/detail_kepala_lab', $data);
+        $this->view('templates/footer_admin');
+    }
+
+    public function edit_data_kepala_lab()
+    {
+        try {
+            $this->model('KepalaLab_model')->tambah_data_kepLab($_POST);
+            header("Location: " . BASEURL . "/Dashboard/data_kepala_lab");
+            Flasher::setFlash('Data Kepala Lab Berhasil', 'Diubah', 'success');
+            exit();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
     public function deleteDataKeplab($id)
     {
         $this->model('Sumber_Daya_Model')->deleteDataKepLabById($id);
         header("Location: http://localhost:8080/tubesmvc/public/Dashboard/data_kepala_lab");
+        Flasher::setFlash('Data Kepala Lab Berhasil', 'Dihapus', 'success');
         exit();
     }
 
@@ -66,10 +95,39 @@ class Dashboard extends Controller
         $this->view('templates/footer_admin');
     }
 
+    public function detail_profile_laboran($id)
+    {
+        session_start();
+        if (!isset($_SESSION['id_user'])) {
+            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            exit();
+        }
+
+        $data['judul'] = 'Edit Profile';
+        $data['laboran'] = $this->model('Laboran_model')->getDataLaboranByUserId($id);
+        $this->view('templates/header_admin', $data);
+        $this->view('templates/top_navbar_admin');
+        $this->view('admin/detail_laboran', $data);
+        $this->view('templates/footer_admin');
+    }
+
+    public function edit_data_laboran()
+    {
+        try {
+            $this->model('Laboran_model')->tambah_data_laboran($_POST);
+            header("Location: " . BASEURL . "/Dashboard/data_laboran");
+            Flasher::setFlash('Data Laboran Berhasil', 'Diubah', 'success');
+            exit();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
     public function deleteDataLaboran($id)
     {
         $this->model('Sumber_Daya_Model')->deleteDataLaboranById($id);
         header("Location: http://localhost:8080/tubesmvc/public/Dashboard/data_laboran");
+        Flasher::setFlash('Data Laboran Berhasil', 'Dihapus', 'success');
         exit();
     }
 
@@ -90,10 +148,39 @@ class Dashboard extends Controller
         $this->view('templates/footer_admin');
     }
 
+    public function detail_profile_asisten($id)
+    {
+        session_start();
+        if (!isset($_SESSION['id_user'])) {
+            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            exit();
+        }
+
+        $data['judul'] = 'Edit Profile';
+        $data['asisten'] = $this->model('Asisten_model')->getDataAsistenByUserId($id);
+        $this->view('templates/header_admin', $data);
+        $this->view('templates/top_navbar_admin');
+        $this->view('admin/detail_asisten', $data);
+        $this->view('templates/footer_admin');
+    }
+
+    public function edit_data_asisten()
+    {
+        try {
+            $this->model('Asisten_model')->tambah_data_asisten($_POST);
+            header("Location: " . BASEURL . "/Dashboard/data_asisten");
+            Flasher::setFlash('Data Asisten Berhasil', 'Diubah', 'success');
+            exit();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
     public function deleteDataAsisten($id)
     {
         $this->model('Sumber_Daya_Model')->deleteDataAsistenById($id);
         header("Location: http://localhost:8080/tubesmvc/public/Dashboard/data_asisten");
+        Flasher::setFlash('Data Asisten Berhasil', 'Dihapus', 'success');
         exit();
     }
 }
