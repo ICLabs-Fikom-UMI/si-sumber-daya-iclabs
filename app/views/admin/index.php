@@ -3,7 +3,7 @@
         <div class="kotak-dashboard shadow p-3 rounded">
             <div class="d-flex justify-content-between gap-4">
                 <h5 class="fw-bold">Total<br>Sumber Daya</h5>
-                <img class="person-image" src="http://localhost:8080/tubesmvc/public/asset/image/icon/person-blue.png" alt="efdf">
+                <img class="person-image" src="<?= BASEURL ?>/asset/image/icon/person-blue.png" alt="efdf">
             </div>
             <h5 class="fw-bold mt-4"><?= $data['countSumberDaya']['total_sumberDaya'] ?></h5>
         </div>
