@@ -209,3 +209,8 @@ section {
 .person-image {
   height: 50px;
 }
+
+.flash-container {
+    max-width: 600px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the container horizontally */
+}

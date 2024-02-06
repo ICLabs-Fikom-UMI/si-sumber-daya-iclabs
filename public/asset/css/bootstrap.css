@@ -4869,8 +4869,10 @@ textarea.form-control-lg {
   --bs-alert-margin-bottom: 1rem;
   --bs-alert-color: inherit;
   --bs-alert-border-color: transparent;
-  --bs-alert-border: var(--bs-border-width) solid var(--bs-alert-border-color);
-  --bs-alert-border-radius: var(--bs-border-radius);
+  --bs-alert-border: var(
+  --bs-border-width) solid var(--bs-alert-border-color);
+  --bs-alert-border-radius: var(
+  --bs-border-radius);
   --bs-alert-link-color: inherit;
   position: relative;
   padding: var(--bs-alert-padding-y) var(--bs-alert-padding-x);
@@ -4937,10 +4939,14 @@ textarea.form-control-lg {
 }
 
 .alert-danger {
-  --bs-alert-color: var(--bs-danger-text-emphasis);
-  --bs-alert-bg: var(--bs-danger-bg-subtle);
-  --bs-alert-border-color: var(--bs-danger-border-subtle);
-  --bs-alert-link-color: var(--bs-danger-text-emphasis);
+  --bs-alert-color: var(
+  --bs-danger-text-emphasis);
+  --bs-alert-bg: var(
+  --bs-danger-bg-subtle);
+  --bs-alert-border-color: var(
+  --bs-danger-border-subtle);
+  --bs-alert-link-color: var(
+  --bs-danger-text-emphasis);
 }
 
 .alert-light {
