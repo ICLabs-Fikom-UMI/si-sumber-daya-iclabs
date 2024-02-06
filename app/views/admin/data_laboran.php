@@ -1,4 +1,5 @@
 <div class="dibawah-topbar-rapat main-content pt-5 px-3">
+    <?php Flasher::flashHapusData(); ?>
     <div class="container-fluid d-flex justify-content-between gap-3 mb-4">
         <h4>Data Laboran</h4>
     </div>
@@ -27,7 +28,7 @@
                         <td><?= $laboran['nama_laboran'] ?></td>
                         <td>Laboran</td>
                         <td>
-                            <a href="">
+                            <a href="<?= BASEURL ?>/Dashboard/detail_profile_laboran/<?= $laboran['id_user'] ?>">
                                 <img src="http://localhost:8080/tubesmvc/public/asset/image/icon/detail.png" alt="">
                             </a>
                             <a href="http://localhost:8080/tubesmvc/public/Dashboard/deleteDataLaboran/<?= $laboran['id_laboran'] ?>" class="btn_delete" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')">
