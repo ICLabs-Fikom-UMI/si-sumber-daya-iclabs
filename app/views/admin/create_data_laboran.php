@@ -1,14 +1,9 @@
 <div class="container-fluid d-flex justify-content-center form-lengkapi-profil flex-column">
     <h3 class="fs-3 text-center mb-5">Lengkapi Profile</h3>
-    <form action="<? BASEURL ?>/Dashboard/tambah_data_laboran" method="post" enctype="multipart/form-data">
+    <form action="<?= BASEURL ?>/Dashboard/tambah_data_laboran" method="post" enctype="multipart/form-data">
         <div class="container mb-4">
-            <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>">
             <label class="fs-6" for="nama_laboran">Nama Lengkap <span class="text-danger">*</span></label><br>
             <input type="text" name="nama_laboran" id="nama_laboran" class="input-text-profile rounded-3" placeholder="Masukkan Nama Lengkap Anda" required>
-        </div>
-        <div class="container mb-4">
-            <label class="fs-6" for="lulusan">Lulusan <span class="text-danger">*</span></label><br>
-            <input type="text" name="lulusan" id="lulusan" class="input-text-profile rounded-3" placeholder="Instansi Pendidikan Lulusan Terakhir" required>
         </div>
         <div class="container mb-4">
             <label class="fs-6" for="email">Email <span class="text-danger">*</span></label><br>
