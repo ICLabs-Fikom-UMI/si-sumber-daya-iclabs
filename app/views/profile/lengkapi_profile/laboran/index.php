@@ -7,10 +7,6 @@
             <input type="text" name="nama_laboran" id="nama_laboran" class="input-text-profile rounded-3" placeholder="Masukkan Nama Lengkap Anda" required>
         </div>
         <div class="container mb-4">
-            <label class="fs-6" for="lulusan">Lulusan <span class="text-danger">*</span></label><br>
-            <input type="text" name="lulusan" id="lulusan" class="input-text-profile rounded-3" placeholder="Instansi Pendidikan Lulusan Terakhir" required>
-        </div>
-        <div class="container mb-4">
             <label class="fs-6" for="email">Email <span class="text-danger">*</span></label><br>
             <input type="text" name="email" id="email" class="input-text-profile rounded-3" placeholder="Masukkan Email Anda" required>
         </div>
