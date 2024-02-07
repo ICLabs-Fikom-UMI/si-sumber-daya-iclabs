@@ -6,7 +6,7 @@ class Dashboard extends Controller
     {
         session_start();
         if (!isset($_SESSION['id_user'])) {
-            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            header("Location: " . BASEURL . "/Login");
             exit();
         }
 
@@ -33,7 +33,7 @@ class Dashboard extends Controller
             exit();
         }
 
-        $data['judul'] = 'Dashboard';
+        $data['judul'] = 'Data Kepala Lab';
         $data['kepala_lab'] = $this->model('Sumber_Daya_Model')->getAllSumberDayaKepalaLab();
         $this->view('templates/header_admin', $data);
         $this->view('templates/top_navbar_admin');
@@ -46,7 +46,7 @@ class Dashboard extends Controller
     {
         session_start();
         if (!isset($_SESSION['id_user'])) {
-            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            header("Location: " . BASEURL . "/Login");
             exit();
         }
 
@@ -61,7 +61,7 @@ class Dashboard extends Controller
     public function view_tambah_data_kepala_lab() {
         session_start();
         if (!isset($_SESSION['id_user'])) {
-            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            header("Location: " . BASEURL . "/Login");
             exit();
         }
 
@@ -111,7 +111,7 @@ class Dashboard extends Controller
             exit();
         }
 
-        $data['judul'] = 'Dashboard';
+        $data['judul'] = 'Data Laboran';
         $data['laboran'] = $this->model('Sumber_Daya_Model')->getAllSumberDayaLaboran();
         $this->view('templates/header_admin', $data);
         $this->view('templates/top_navbar_admin');
@@ -155,7 +155,7 @@ class Dashboard extends Controller
     {
         try {
             $this->model('Laboran_model')->createDataLaboran($_POST);
-            header("Location: " . BASEURL . "/Dashboard/data_kepala_lab");
+            header("Location: " . BASEURL . "/Dashboard/data_laboran");
             Flasher::setFlash('Data Laboran Berhasil', 'Ditambah', 'success');
             exit();
         } catch (Exception $e) {
