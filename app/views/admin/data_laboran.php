@@ -3,7 +3,7 @@
     <div class="container-fluid d-flex justify-content-between gap-3 mb-4">
         <h4>Data Laboran</h4>
     </div>
-    <a href="">
+    <a href="<?= BASEURL ?>/Dashboard/view_tambah_data_laboran">
         <button type="button" class="btn btn-primary ms-4 mb-4">Tambah Data</button>
     </a>
     <div class="container-fluid overflow-y-auto" style="max-height: 60vh;">
