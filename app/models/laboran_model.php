@@ -1,14 +1,17 @@
 <?php
 
-class Laboran_model  {
+class Laboran_model
+{
     private $table = 'mst_laboran';
     private $db;
-    
-    public function __construct() {
+
+    public function __construct()
+    {
         $this->db = new Database;
     }
 
-    public function getAllLaboran() {
+    public function getAllLaboran()
+    {
         $this->db->query('SELECT * FROM ' . $this->table);
         return $this->db->resultSet();
     }
@@ -60,7 +63,7 @@ class Laboran_model  {
         $newFileName = $uploadDirectory . $_FILES['foto']['name'];
 
         move_uploaded_file($uploadedFile, $newFileName);
-        
+
         try {
             $query = "UPDATE " . $this->table . " 
                   SET nama_laboran = :nama, 
@@ -123,14 +126,12 @@ class Laboran_model  {
 
         move_uploaded_file($uploadedFile, $newFileName);
 
-        $query = "CALL create_data_kepala_lab(:nama, :foto, :nidn, :lulusan, :prodi, :mulai_menjabat, :selesai_menjabat, :email, :no_telp, :deskripsi, :bidang_keahlian)";
+        $query = "CALL create_data_laboran(:nama, :foto, :lulusan, :mulai_menjabat, :selesai_menjabat, :email, :no_telp, :deskripsi, :bidang_keahlian)";
 
         $this->db->query($query);
-        $this->db->bind('nama', $_POST['nama_kepala_lab']);
+        $this->db->bind('nama', $_POST['nama_laboran']);
         $this->db->bind('foto', $newFileName);
-        $this->db->bind('nidn', $_POST['nidn']);
         $this->db->bind('lulusan', $_POST['lulusan']);
-        $this->db->bind('prodi', $_POST['prodi']);
         $this->db->bind('mulai_menjabat', $_POST['mulai_menjabat']);
         $this->db->bind('selesai_menjabat', $_POST['selesai_menjabat']);
         $this->db->bind('email', $_POST['email']);
