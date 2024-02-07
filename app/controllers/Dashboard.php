@@ -58,6 +58,31 @@ class Dashboard extends Controller
         $this->view('templates/footer_admin');
     }
 
+    public function view_tambah_data_kepala_lab() {
+        session_start();
+        if (!isset($_SESSION['id_user'])) {
+            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            exit();
+        }
+
+        $data['judul'] = 'Tambah Data Kepala Lab';
+        $this->view('templates/header_admin', $data);
+        $this->view('templates/top_navbar_admin');
+        $this->view('admin/create_data_kepala_lab');
+        $this->view('templates/footer_admin');
+    }
+
+    public function tambah_data_kepala_lab(){
+        try {
+            $this->model('KepalaLab_model')->createDataKepalaLab($_POST);
+            header("Location: " . BASEURL . "/Dashboard/data_kepala_lab");
+            Flasher::setFlash('Data Kepala Lab Berhasil', 'Ditambah', 'success');
+            exit();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
     public function edit_data_kepala_lab()
     {
         try {
@@ -111,6 +136,34 @@ class Dashboard extends Controller
         $this->view('templates/footer_admin');
     }
 
+    public function view_tambah_data_laboran()
+    {
+        session_start();
+        if (!isset($_SESSION['id_user'])) {
+            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            exit();
+        }
+
+        $data['judul'] = 'Tambah Data Laboran';
+        $this->view('templates/header_admin', $data);
+        $this->view('templates/top_navbar_admin');
+        $this->view('admin/create_data_laboran');
+        $this->view('templates/footer_admin');
+    }
+
+    public function tambah_data_laboran()
+    {
+        try {
+            $this->model('Laboran_model')->createDataLaboran($_POST);
+            header("Location: " . BASEURL . "/Dashboard/data_kepala_lab");
+            Flasher::setFlash('Data Laboran Berhasil', 'Ditambah', 'success');
+            exit();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+
     public function edit_data_laboran()
     {
         try {
@@ -162,6 +215,33 @@ class Dashboard extends Controller
         $this->view('templates/top_navbar_admin');
         $this->view('admin/detail_asisten', $data);
         $this->view('templates/footer_admin');
+    }
+
+    public function view_tambah_data_asisten()
+    {
+        session_start();
+        if (!isset($_SESSION['id_user'])) {
+            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            exit();
+        }
+
+        $data['judul'] = 'Tambah Data Laboran';
+        $this->view('templates/header_admin', $data);
+        $this->view('templates/top_navbar_admin');
+        $this->view('admin/create_data_asisten');
+        $this->view('templates/footer_admin');
+    }
+
+    public function tambah_data_asisten()
+    {
+        try {
+            $this->model('Asisten_model')->createDataAsisten($_POST);
+            header("Location: " . BASEURL . "/Dashboard/data_asisten");
+            Flasher::setFlash('Data Asisten Berhasil', 'Ditambah', 'success');
+            exit();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
     }
 
     public function edit_data_asisten()
