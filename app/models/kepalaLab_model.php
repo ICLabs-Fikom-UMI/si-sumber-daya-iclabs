@@ -123,5 +123,29 @@ class KepalaLab_model
         }
     }
 
-    
+    public function createDataKepalaLab($data)
+    {
+        $uploadDirectory = '../public/asset/image/foto-profile/';
+        $uploadedFile = $_FILES['foto']['tmp_name'];
+        $newFileName = $uploadDirectory . $_FILES['foto']['name'];
+
+        move_uploaded_file($uploadedFile, $newFileName);
+
+        $query = "CALL create_data_kepala_lab(:nama, :foto, :nidn, :lulusan, :prodi, :mulai_menjabat, :selesai_menjabat, :email, :no_telp, :deskripsi, :bidang_keahlian)";
+
+        $this->db->query($query);
+        $this->db->bind('nama', $_POST['nama_kepala_lab']);
+        $this->db->bind('foto', $newFileName);
+        $this->db->bind('nidn', $_POST['nidn']);
+        $this->db->bind('lulusan', $_POST['lulusan']);
+        $this->db->bind('prodi', $_POST['prodi']);
+        $this->db->bind('mulai_menjabat', $_POST['mulai_menjabat']);
+        $this->db->bind('selesai_menjabat', $_POST['selesai_menjabat']);
+        $this->db->bind('email', $_POST['email']);
+        $this->db->bind('no_telp', $_POST['no_telp']);
+        $this->db->bind('deskripsi', $_POST['deskripsi']);
+        $this->db->bind('bidang_keahlian', $_POST['bidang_keahlian']);
+
+        return $this->db->execute();
+    }
 }

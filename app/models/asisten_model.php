@@ -123,4 +123,31 @@ class Asisten_model
             return false;
         }
     }
+
+    public function createDataAsisten($data)
+    {
+        $uploadDirectory = '../public/asset/image/foto-profile/';
+        $uploadedFile = $_FILES['foto']['tmp_name'];
+        $newFileName = $uploadDirectory . $_FILES['foto']['name'];
+
+        move_uploaded_file($uploadedFile, $newFileName);
+
+        $query = "CALL create_data_asisten(:nama, :kelas, :foto, :nim, :prodi, :angkatan, :email, :no_telp, :alamat, :deskripsi, :bidang_keahlian, :matkul)";
+
+        $this->db->query($query);
+        $this->db->bind('nama', $_POST['nama_asisten']);
+        $this->db->bind('kelas', $_POST['kelas']);
+        $this->db->bind('foto', $newFileName);
+        $this->db->bind('nim', $_POST['nim']);
+        $this->db->bind('prodi', $_POST['prodi']);
+        $this->db->bind('angkatan', $_POST['angkatan']);
+        $this->db->bind('email', $_POST['email']);
+        $this->db->bind('no_telp', $_POST['no_telp']);
+        $this->db->bind('alamat', $_POST['alamat']);
+        $this->db->bind('deskripsi', $_POST['deskripsi']);
+        $this->db->bind('bidang_keahlian', $_POST['bidang_keahlian']);
+        $this->db->bind('matkul', $_POST['riwayat_matkul']);
+
+        return $this->db->execute();
+    }
 }
