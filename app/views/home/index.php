@@ -18,11 +18,11 @@
           <div class="card">
             <img src="<?= $kepalaLab['foto']; ?>" class="card-img-top object-fit-cover " style="object-position: center; height: 330.333px;" alt="Card Image">
             <div class="card-body overflow-hidden">
-              <p class="card-name text-center"><?= $kepalaLab['nama_kepala_lab'] ?></p>
+              <p class="card-name text-center fw-bold"><?= $kepalaLab['nama_kepala_lab'] ?></p>
             </div>
             <div class="card-info-box">
               <div class="center ms-0 fs-6">
-                <span>
+                <span class="fs-6">
                   <img src="asset/image/icon/univ.png" class="me-1">
                   <?= $kepalaLab['lulusan'] ?>
                 </span><br>
@@ -65,7 +65,7 @@
           <div class="card">
             <img src="<?= $laboran['foto']; ?>" class="card-img-top object-fit-cover" style="object-position: center; height: 330.333px;" alt="Card Image">
             <div class="card-body overflow-hidden">
-              <p class="card-name text-center"><?= $laboran['nama_laboran'] ?></p>
+              <p class="card-name text-center fw-bold"><?= $laboran['nama_laboran'] ?></p>
             </div>
             <div class="card-info-box">
               <div class="center ms-0 fs-6">
@@ -105,9 +105,11 @@
       <a href="<?= BASEURL ?>/home/detail_asisten/<?= $asisten['id_asisten']; ?>" class="text-decoration-none">
         <div class="col">
           <div class="card">
-            <img src="<?= $asisten['foto']; ?>" class="card-img-top object-fit-cover" style="object-position: center; height: 330.333px;" alt="Card Image">
-            <div class="card-body overflow-hidden">
-              <p class="card-name text-center mt-n1"><?= $asisten['nama_asisten']; ?></p>
+            <div class="rounded-image overflow-hidden">
+              <img src="<?= $asisten['foto']; ?>" class="card-img-top object-fit-cover" style="object-position: center; width: 100%; height: 330.333px;" alt="Card Image">
+            </div>
+            <div class="card-body overflow-hidden ">
+              <p class="card-name text-center fw-bold"><?= $asisten['nama_asisten']; ?></p>
             </div>
             <div class="card-info-box">
               <div class="center ms-2 fs-6">
@@ -133,6 +135,7 @@
         </div>
       </a>
     <?php endforeach; ?>
+
 
   </div>
 </div>
