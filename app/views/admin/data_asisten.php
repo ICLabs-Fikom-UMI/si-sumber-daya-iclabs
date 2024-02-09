@@ -34,7 +34,7 @@
                                 <img src="<?= BASEURL ?>/asset/image/icon/detail.png" alt="">
                             </a>
                             <a href="<?= BASEURL ?>/Dashboard/deleteDataAsisten/<?= $asisten['id_asisten'] ?>" class="btn_delete" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')">
-                                <img src="" . BASEURL . "/asset/image/icon/delete.png" alt="">
+                                <img src="<?= BASEURL ?>/asset/image/icon/delete.png" alt="">
                             </a>
                         </td>
                     </tr>
