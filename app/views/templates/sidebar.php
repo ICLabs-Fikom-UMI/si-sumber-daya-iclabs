@@ -4,7 +4,7 @@
             <h6 class="text-start fw-bold mb-3">Home</h6>
             <ul style="margin-left: -1.8rem;">
                 <li style="list-style: none;">
-                    <a class="text-decoration-none text-black d-flex gap-3" href="<?= BASEURL ?>Dashboard/index">
+                    <a class="text-decoration-none text-black d-flex gap-3" href="<?= BASEURL ?>/Dashboard/index">
                         <i class="bi bi-house fw-normal"></i>
                         <p class="fw-medium">Dashboard</p>
                     </a>
