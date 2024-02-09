@@ -200,3 +200,22 @@ section {
   max-width: 600px; /* Adjust the maximum width as needed */
   margin: 0 auto; /* Center the container horizontally */
 }
+
+.footer {
+  margin-top: 16px;
+  background-color: #0c1740;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer a {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.footer a:hover {
+  text-decoration: underline !important;
+}
