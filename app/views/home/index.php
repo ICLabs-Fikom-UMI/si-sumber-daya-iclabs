@@ -13,7 +13,7 @@
 
     <!-- card Kepala Lab -->
     <?php foreach ($data['kepalaLab'] as $kepalaLab) : ?>
-      <a href="http://localhost:8080/tubesmvc/public/home/detail_kepalaLab/<?= $kepalaLab['id_kepala_lab']; ?>" class="text-decoration-none">
+      <a href="<?= BASEURL ?>/home/detail_kepalaLab/<?= $kepalaLab['id_kepala_lab']; ?>" class="text-decoration-none">
         <div class="col">
           <div class="card">
             <img src="<?= $kepalaLab['foto']; ?>" class="card-img-top object-fit-cover " style="object-position: center; height: 330.333px;" alt="Card Image">
@@ -60,7 +60,7 @@
 
     <!-- card laboran -->
     <?php foreach ($data['laboran'] as $laboran) : ?>
-      <a href="http://localhost:8080/tubesmvc/public/home/detail_laboran/<?= $laboran['id_laboran']; ?>" class="text-decoration-none">
+      <a href="<?= BASEURL ?>/home/detail_laboran/<?= $laboran['id_laboran']; ?>" class="text-decoration-none">
         <div class="col">
           <div class="card">
             <img src="<?= $laboran['foto']; ?>" class="card-img-top object-fit-cover" style="object-position: center; height: 330.333px;" alt="Card Image">
@@ -102,7 +102,7 @@
   <div class="row row-cols-1 row-cols-md-4 row-cols-2 g-4 justify-content-center">
 
     <?php foreach ($data['asisten'] as $asisten) : ?>
-      <a href="http://localhost:8080/tubesmvc/public/home/detail_asisten/<?= $asisten['id_asisten']; ?>" class="text-decoration-none">
+      <a href="<?= BASEURL ?>/home/detail_asisten/<?= $asisten['id_asisten']; ?>" class="text-decoration-none">
         <div class="col">
           <div class="card">
             <img src="<?= $asisten['foto']; ?>" class="card-img-top object-fit-cover" style="object-position: center; height: 330.333px;" alt="Card Image">

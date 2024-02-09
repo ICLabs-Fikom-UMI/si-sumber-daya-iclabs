@@ -2,7 +2,7 @@
     <img class="foto-profile rounded" src="../../<?= $data['laboran']['foto'] ?>" alt="foto-profile" />
 </div>
 
-<form action="http://localhost:8080/tubesmvc/public/Profile_Laboran/tambah/ <?= $_SESSION['id_user'] ?>" method="post">
+<form action="<?= BASEURL ?>/Profile_Laboran/tambah/ <?= $_SESSION['id_user'] ?>" method="post">
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col col-md-12 mb-4 d-flex ">

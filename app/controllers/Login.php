@@ -36,7 +36,7 @@ class Login extends Controller
 
 
                     if ($role['role'] == 'Admin') {
-                        header("Location: http://localhost:8080/tubesmvc/public/Dashboard");
+                        header("Location: " . BASEURL . "/Dashboard");
                     } else if ($role['role'] == 'Kepala Lab') {
                         $idUser['kepala_lab'] = $this->model('KepalaLab_model')->checkIdUser($user['id_user']);
 
@@ -64,9 +64,9 @@ class Login extends Controller
                         }
 
                         if ($isIdentitasComplete == true) {
-                            header("Location: http://localhost:8080/tubesmvc/public/Profile_KepLab/detail_profile/" . $user['id_user']);
+                            header("Location: " . BASEURL . "/Profile_KepLab/detail_profile/" . $user['id_user']);
                         } else {
-                            header("Location: http://localhost:8080/tubesmvc/public/Profile_Keplab");
+                            header("Location: " . BASEURL . "/Profile_Keplab");
                         }
                     } else if ($role['role'] == 'Laboran') {
                         $idUser['laboran'] = $this->model('Laboran_model')->checkIdUser($user['id_user']);
@@ -95,9 +95,9 @@ class Login extends Controller
                         }
 
                         if ($isIdentitasComplete == true) {
-                            header("Location: http://localhost:8080/tubesmvc/public/Profile_Laboran/detail_profile/" . $user['id_user']);
+                            header("Location: " . BASEURL . "/Profile_Laboran/detail_profile/" . $user['id_user']);
                         } else {
-                            header("Location: http://localhost:8080/tubesmvc/public/Profile_Laboran");
+                            header("Location: " . BASEURL . "/Profile_Laboran");
                         }
                     } else if ($role['role'] == 'Asisten Lab') {
                         $idUser['asisten'] = $this->model('Asisten_model')->checkIdUser($user['id_user']);
@@ -131,9 +131,9 @@ class Login extends Controller
                         }
 
                         if ($isIdentitasComplete == true) {
-                            header("Location: http://localhost:8080/tubesmvc/public/Profile_Asisten/detail_profile/" . $user['id_user']);
+                            header("Location: " . BASEURL . "/Profile_Asisten/detail_profile/" . $user['id_user']);
                         } else {
-                            header("Location: http://localhost:8080/tubesmvc/public/Profile_Asisten");
+                            header("Location: " . BASEURL . "/Profile_Asisten");
                         }
                     }
                 }

@@ -6,14 +6,14 @@ class Profile_KepLab extends Controller
     {
         session_start();
         if (!isset($_SESSION['id_user'])) {
-            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            header("Location: " . BASEURL . "/Login");
             exit();
         }
 
         $data['judul'] = 'Lengkapi Profile Kepala Lab';
         $this->view('templates/header', $data);
         $this->view('templates/top_navbar_profile');
-        $this->view('profile/lengkapi_profile/keplab/index' );
+        $this->view('profile/lengkapi_profile/keplab/index');
         $this->view('templates/footer');
     }
 
@@ -21,7 +21,7 @@ class Profile_KepLab extends Controller
     {
         session_start();
         if (!isset($_SESSION['id_user'])) {
-            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            header("Location: " . BASEURL . "/Login");
             exit();
         }
 
@@ -37,7 +37,7 @@ class Profile_KepLab extends Controller
     {
         try {
             $this->model('KepalaLab_model')->tambah_data_kepLab($_POST);
-            header('Location: http://localhost:8080/tubesmvc/public/Profile_KepLab/detail_profile/' . $id_user);
+            header("Location: " . BASEURL . "/Profile_KepLab/detail_profile/" . $id_user);
         } catch (Exception $e) {
             echo  $e;
         }

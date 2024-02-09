@@ -6,7 +6,7 @@ class Profile_Laboran extends Controller
     {
         session_start();
         if (!isset($_SESSION['id_user'])) {
-            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            header("Location: " . BASEURL . "/Login");
             exit();
         }
         $data['judul'] = 'Lengkapi Profile Laboran';
@@ -21,7 +21,7 @@ class Profile_Laboran extends Controller
     {
         session_start();
         if (!isset($_SESSION['id_user'])) {
-            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            header("Location: " . BASEURL . "/Login");
             exit();
         }
 
@@ -37,8 +37,7 @@ class Profile_Laboran extends Controller
     {
         try {
             $this->model('Laboran_model')->tambah_data_laboran($_POST);
-            // var_dump($id_user);
-            header('Location: http://localhost:8080/tubesmvc/public/Profile_Laboran/detail_profile/' . $id_user);
+            header("Location: " . BASEURL . "/Profile_Laboran/detail_profile/" . $id_user);
         } catch (Exception $e) {
             echo  $e;
         }

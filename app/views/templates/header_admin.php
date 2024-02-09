@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Halaman <?= $data['judul'] ?></title>
 
-  <link rel="stylesheet" href="http://localhost:8080/tubesmvc/public/asset/css/bootstrap.css" />
-  <link rel="stylesheet" href="http://localhost:8080/tubesmvc/public/asset/css/personal_css/style.css">
+  <link rel="stylesheet" href="<?= BASEURL ?>/asset/css/bootstrap.css" />
+  <link rel="stylesheet" href="<?= BASEURL ?>/asset/css/personal_css/style.css">
 
   <!-- Datatables -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">

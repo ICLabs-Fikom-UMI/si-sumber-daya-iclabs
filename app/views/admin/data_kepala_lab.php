@@ -31,10 +31,10 @@
                         <td>Kepala Lab</td>
                         <td>
                             <a href="<?= BASEURL ?>/Dashboard/detail_profile_kepLab/<?= $kepalaLab['id_user'] ?>">
-                                <img src="http://localhost:8080/tubesmvc/public/asset/image/icon/detail.png" alt="">
+                                <img src="<?= BASEURL ?>/asset/image/icon/detail.png" alt="">
                             </a>
                             <a href="<?= BASEURL ?>/Dashboard/deleteDataKeplab/<?= $kepalaLab['id_kepala_lab'] ?>" class="btn_delete" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')">
-                                <img src="http://localhost:8080/tubesmvc/public/asset/image/icon/delete.png" alt="">
+                                <img src="<?= BASEURL ?>/asset/image/icon/delete.png" alt="">
                             </a>
                         </td>
                     </tr>

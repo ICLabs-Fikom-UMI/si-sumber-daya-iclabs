@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center">
-    <form action="http://localhost:8080/tubesmvc/public/Login/login" method="post" class="form-login">
+    <form action="<?= BASEURL ?>/Login/login" method="post" class="form-login">
         <?php Flasher::flashLoginSignup(); ?>
         <div class="header">
             <h1>LOGIN</h1>
@@ -22,7 +22,7 @@
 
         <div class="d-flex flex-column align-items-center mb-3">
             <button type="submit" class="signin mb-3 formku w-50 button-biru">Masuk</button>
-            <span class="text-white">Don’t have an account?<a href="http://localhost:8080/tubesmvc/public/signup/index" class="text-decoration-none text-biru fw-bolder">
+            <span class="text-white">Don’t have an account?<a href="<?= BASEURL ?>/signup/index" class="text-decoration-none text-biru fw-bolder">
                     SIGNUP</a></span>
 
         </div>

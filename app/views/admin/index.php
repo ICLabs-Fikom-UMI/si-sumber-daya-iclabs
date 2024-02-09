@@ -10,21 +10,21 @@
         <div class="kotak-dashboard shadow p-3">
             <div class="d-flex justify-content-between gap-4">
                 <h5 class="fw-bold">Jumlah<br>Kepala Lab</h5>
-                <img class="person-image" src="http://localhost:8080/tubesmvc/public/asset/image/icon/person-blue.png" alt="efdf">
+                <img class="person-image" src="<?= BASEURL ?>/asset/image/icon/person-blue.png" alt="efdf">
             </div>
             <h5 class="fw-bold mt-4"><?= $data['countKepLab']['total_keplab'] ?></h5>
         </div>
         <div class="kotak-dashboard shadow p-3">
             <div class="d-flex justify-content-between gap-3">
                 <h5 class="fw-bold">Jumlah<br>Laboran</h5>
-                <img class="person-image" src="http://localhost:8080/tubesmvc/public/asset/image/icon/person-blue.png" alt="efdf">
+                <img class="person-image" src="<?= BASEURL ?>/asset/image/icon/person-blue.png" alt="efdf">
             </div>
             <h5 class="fw-bold mt-4"><?= $data['countLaboran']['total_laboran'] ?></h5>
         </div>
         <div class="kotak-dashboard shadow p-3">
             <div class="d-flex justify-content-between gap-3">
                 <h5 class="fw-bold">Jumlah<br>Asisten Lab</h5>
-                <img class="person-image" src="http://localhost:8080/tubesmvc/public/asset/image/icon/person-blue.png" alt="efdf">
+                <img class="person-image" src="<?= BASEURL ?>/asset/image/icon/person-blue.png" alt="efdf">
             </div>
             <h5 class="fw-bold mt-4"><?= $data['countAsisten']['total_asisten'] ?></h5>
         </div>

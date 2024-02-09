@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center">
-  <form action="http://localhost:8080/tubesmvc/public/Signup/signup" method="post" class="form-signup">
-      <?php Flasher::flashLoginSignup(); ?>
+  <form action="<?= BASEURL ?>/Signup/signup" method="post" class="form-signup">
+    <?php Flasher::flashLoginSignup(); ?>
     <div class="header">
       <h1>SIGN UP</h1>
     </div>

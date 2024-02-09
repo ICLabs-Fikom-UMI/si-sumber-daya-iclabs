@@ -97,11 +97,11 @@ html {
 }
 
 .text-biru {
-  color: #0C1740;
+  color: #0c1740;
 }
 
 .button-biru {
-  background-color: #0C1740;
+  background-color: #0c1740;
   color: white;
 }
 
@@ -126,7 +126,7 @@ body {
 }
 
 .form-login .header h1 {
-  color: #0C1740;
+  color: #0c1740;
   font-weight: bold;
   text-align: center;
 }
@@ -136,7 +136,7 @@ section {
 }
 
 .bgImage {
-  background-image: url("http://localhost:8080/tubesmvc/public/asset/image/background/startup.png");
+  background-image: url("".BASEURL."/asset/image/background/startup.png");
   background-position: 0px -300px;
   /* background-repeat: no-repeat; */
 }
@@ -181,8 +181,7 @@ section {
 }
 
 .dibawah-topbar {
-  margin-top: 6rem;;
-
+  margin-top: 6rem;
 }
 
 .dibawah-topbar-rapat {
@@ -211,6 +210,6 @@ section {
 }
 
 .flash-container {
-    max-width: 600px; /* Adjust the maximum width as needed */
-    margin: 0 auto; /* Center the container horizontally */
+  max-width: 600px; /* Adjust the maximum width as needed */
+  margin: 0 auto; /* Center the container horizontally */
 }

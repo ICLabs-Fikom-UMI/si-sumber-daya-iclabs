@@ -31,10 +31,10 @@
                         <td>Asisten Lab</td>
                         <td>
                             <a href="<?= BASEURL ?>/Dashboard/detail_profile_asisten/<?= $asisten['id_user'] ?>">
-                                <img src="http://localhost:8080/tubesmvc/public/asset/image/icon/detail.png" alt="">
+                                <img src="<?= BASEURL ?>/asset/image/icon/detail.png" alt="">
                             </a>
-                            <a href="http://localhost:8080/tubesmvc/public/Dashboard/deleteDataAsisten/<?= $asisten['id_asisten'] ?>" class="btn_delete" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')">
-                                <img src="http://localhost:8080/tubesmvc/public/asset/image/icon/delete.png" alt="">
+                            <a href="<?= BASEURL ?>/Dashboard/deleteDataAsisten/<?= $asisten['id_asisten'] ?>" class="btn_delete" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')">
+                                <img src="" . BASEURL . "/asset/image/icon/delete.png" alt="">
                             </a>
                         </td>
                     </tr>

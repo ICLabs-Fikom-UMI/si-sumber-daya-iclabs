@@ -29,7 +29,7 @@ class Dashboard extends Controller
     {
         session_start();
         if (!isset($_SESSION['id_user'])) {
-            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            header("Location: " . BASEURL . "/Login");
             exit();
         }
 
@@ -98,7 +98,7 @@ class Dashboard extends Controller
     public function deleteDataKeplab($id)
     {
         $this->model('Sumber_Daya_Model')->deleteDataKepLabById($id);
-        header("Location: http://localhost:8080/tubesmvc/public/Dashboard/data_kepala_lab");
+        header("Location: " . BASEURL . "/Dashboard/data_kepala_lab");
         Flasher::setFlash('Data Kepala Lab Berhasil', 'Dihapus', 'success');
         exit();
     }
@@ -107,7 +107,7 @@ class Dashboard extends Controller
     {
         session_start();
         if (!isset($_SESSION['id_user'])) {
-            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            header("Location: " . BASEURL . "/Login");
             exit();
         }
 
@@ -124,7 +124,7 @@ class Dashboard extends Controller
     {
         session_start();
         if (!isset($_SESSION['id_user'])) {
-            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            header("Location: " . BASEURL . "/Login");
             exit();
         }
 
@@ -140,7 +140,7 @@ class Dashboard extends Controller
     {
         session_start();
         if (!isset($_SESSION['id_user'])) {
-            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            header("" . BASEURL . "/Login");
             exit();
         }
 
@@ -179,7 +179,7 @@ class Dashboard extends Controller
     public function deleteDataLaboran($id)
     {
         $this->model('Sumber_Daya_Model')->deleteDataLaboranById($id);
-        header("Location: http://localhost:8080/tubesmvc/public/Dashboard/data_laboran");
+        header("Location: " . BASEURL . "/Dashboard/data_laboran");
         Flasher::setFlash('Data Laboran Berhasil', 'Dihapus', 'success');
         exit();
     }
@@ -188,7 +188,7 @@ class Dashboard extends Controller
     {
         session_start();
         if (!isset($_SESSION['id_user'])) {
-            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            header("Location: " . BASEURL . "/Login");
             exit();
         }
 
@@ -205,7 +205,7 @@ class Dashboard extends Controller
     {
         session_start();
         if (!isset($_SESSION['id_user'])) {
-            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            header("Location: " . BASEURL . "/Login");
             exit();
         }
 
@@ -221,7 +221,7 @@ class Dashboard extends Controller
     {
         session_start();
         if (!isset($_SESSION['id_user'])) {
-            header("Location: http://localhost:8080/tubesmvc/public/Login");
+            header("Location: " . BASEURL . "/Login");
             exit();
         }
 
@@ -259,7 +259,7 @@ class Dashboard extends Controller
     public function deleteDataAsisten($id)
     {
         $this->model('Sumber_Daya_Model')->deleteDataAsistenById($id);
-        header("Location: http://localhost:8080/tubesmvc/public/Dashboard/data_asisten");
+        header("Location: " . BASEURL . "/Dashboard/data_asisten");
         Flasher::setFlash('Data Asisten Berhasil', 'Dihapus', 'success');
         exit();
     }
