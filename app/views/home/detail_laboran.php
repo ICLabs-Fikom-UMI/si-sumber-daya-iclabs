@@ -6,11 +6,11 @@
             <div class="card-info-box">
                 <div class="center ms-2 fs-6">
                     <span>
-                        <img src="../../asset/image/icon/email.png" class="me-1">
+                        <img src="<?= BASEURL ?>/asset/image/icon/email.png" class="me-1">
                         <?= $data['laboran']['email']; ?>
                     </span><br>
                     <span>
-                        <img src="../../asset/image/icon/phone.png" class="me-1">
+                        <img src="<?= BASEURL ?>/asset/image/icon/phone.png" class="me-1">
                         <?= $data['laboran']['no_telp']; ?>
                     </span><br>
                 </div>

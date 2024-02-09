@@ -6,19 +6,19 @@
             <div class="card-info-box">
                 <div class="center ms-2 fs-6">
                     <span>
-                        <img src="../../asset/image/icon/email.png" class="me-1">
+                        <img src="<?= BASEURL ?>asset/image/icon/email.png" class="me-1">
                         <?= $data['asisten']['email']; ?>
                     </span><br>
                     <span>
-                        <img src="../../asset/image/icon/nidn.png" class="me-1">
+                        <img src="<?= BASEURL ?>asset/image/icon/nidn.png" class="me-1">
                         <?= $data['asisten']['nim']; ?>
                     </span><br>
                     <span>
-                        <img src="../../asset/image/icon/phone.png" class="me-1">
+                        <img src="<?= BASEURL ?>asset/image/icon/phone.png" class="me-1">
                         <?= $data['asisten']['no_telp']; ?>
                     </span><br>
                     <span>
-                        <img src="../../asset/image/icon/location.png" class="me-1">
+                        <img src="<?= BASEURL ?>asset/image/icon/location.png" class="me-1">
                         <?= $data['asisten']['alamat']; ?>
                     </span>
                 </div>
