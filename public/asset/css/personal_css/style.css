@@ -57,6 +57,18 @@ section {
 
 .card-img {
   max-width: 100%;
+  min-height: 299px;
+  max-height: 300px;
+}
+
+.card-body {
+  padding: 10px 5px;
+  margin-bottom: 0;
+  max-height: 100px !important;
+}
+
+.card-body p {
+  margin: 5px 0;
 }
 
 .card-info-box {
@@ -149,17 +161,6 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.card-img {
-  max-width: 100%;
-}
-
-.card-info-box {
-  background-color: #2b4658;
-  padding: 10px;
-  color: white;
-  text-align: start;
 }
 
 .formku {

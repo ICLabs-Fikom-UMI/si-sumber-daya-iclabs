@@ -13,15 +13,15 @@
 
     <!-- card Kepala Lab -->
     <?php foreach ($data['kepalaLab'] as $kepalaLab) : ?>
-      <a href="<?= BASEURL ?>/home/detail_kepalaLab/<?= $kepalaLab['id_kepala_lab']; ?>" class="text-decoration-none">
-        <div class="col">
-          <div class="card">
-            <img src="<?= $kepalaLab['foto']; ?>" class="card-img-top object-fit-cover " style="object-position: center; height: 330.333px;" alt="Card Image">
+      <div class="col">
+        <a href="<?= BASEURL ?>/home/detail_kepalaLab/<?= $kepalaLab['id_kepala_lab']; ?>" class="text-decoration-none">
+          <div class="card overflow-hidden">
+            <img src="<?= $kepalaLab['foto']; ?>" class="card-img object-fit-cover" alt="Card Image">
             <div class="card-body overflow-hidden">
-              <p class="card-name text-center fw-bold"><?= $kepalaLab['nama_kepala_lab'] ?></p>
+              <p class="card-name text-center fw-bold searchable"><?= $kepalaLab['nama_kepala_lab'] ?></p>
             </div>
-            <div class="card-info-box">
-              <div class="center ms-0 fs-6">
+            <div class="card-info-box overflow-hidden">
+              <div class="fs-6">
                 <span class="fs-6">
                   <img src="<?= BASEURL ?>/asset/image/icon/univ.png" class="me-1">
                   <?= $kepalaLab['lulusan'] ?>
@@ -37,8 +37,8 @@
               </div>
             </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     <?php endforeach; ?>
   </div>
 </div>
@@ -60,12 +60,12 @@
 
     <!-- card laboran -->
     <?php foreach ($data['laboran'] as $laboran) : ?>
-      <a href="<?= BASEURL ?>/home/detail_laboran/<?= $laboran['id_laboran']; ?>" class="text-decoration-none">
-        <div class="col">
+      <div class="col">
+        <a href="<?= BASEURL ?>/home/detail_laboran/<?= $laboran['id_laboran']; ?>" class="text-decoration-none">
           <div class="card">
-            <img src="<?= $laboran['foto']; ?>" class="card-img-top object-fit-cover" style="object-position: center; height: 330.333px;" alt="Card Image">
+            <img src="<?= $laboran['foto']; ?>" class="card-img object-fit-cover" alt="Card Image">
             <div class="card-body overflow-hidden">
-              <p class="card-name text-center fw-bold"><?= $laboran['nama_laboran'] ?></p>
+              <p class="card-name text-center fw-bold searchable"><?= $laboran['nama_laboran'] ?></p>
             </div>
             <div class="card-info-box">
               <div class="center ms-0 fs-6">
@@ -80,8 +80,8 @@
               </div>
             </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     <?php endforeach; ?>
   </div>
 </div>
@@ -102,14 +102,14 @@
   <div class="row row-cols-1 row-cols-md-4 row-cols-2 g-4 justify-content-center">
 
     <?php foreach ($data['asisten'] as $asisten) : ?>
-      <a href="<?= BASEURL ?>/home/detail_asisten/<?= $asisten['id_asisten']; ?>" class="text-decoration-none">
-        <div class="col">
+      <div class="col">
+        <a href="<?= BASEURL ?>/home/detail_asisten/<?= $asisten['id_asisten']; ?>" class="text-decoration-none">
           <div class="card">
             <div class="rounded-image overflow-hidden">
-              <img src="<?= $asisten['foto']; ?>" class="card-img-top object-fit-cover" style="object-position: center; width: 100%; height: 330.333px;" alt="Card Image">
+              <img src="<?= $asisten['foto']; ?>" class="card-img object-fit-cover" alt="Card Image">
             </div>
-            <div class="card-body overflow-hidden ">
-              <p class="card-name text-center fw-bold"><?= $asisten['nama_asisten']; ?></p>
+            <div class="card-body">
+              <p class="card-name text-center fw-bold searchable"><?= $asisten['nama_asisten']; ?></p>
             </div>
             <div class="card-info-box">
               <div class="center ms-2 fs-6">
@@ -132,8 +132,8 @@
               </div>
             </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     <?php endforeach; ?>
 
 

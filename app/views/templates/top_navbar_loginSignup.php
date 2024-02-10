@@ -13,7 +13,7 @@
             <!-- Menambahkan menu "Home" dan menu lainnya di ujung kanan -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item me-4">
-                    <a class="nav-link text-white" href="<?= BASEURL ?>/home/index.php">Home</a>
+                    <a class="nav-link text-white" href="<?= BASEURL ?>">Home</a>
                 </li>
                 <li class="nav-item me-4">
                     <a class="nav-link text-white" href="<?= BASEURL ?>/home/index.php#kepalaLab">Kepala Lab</a>
