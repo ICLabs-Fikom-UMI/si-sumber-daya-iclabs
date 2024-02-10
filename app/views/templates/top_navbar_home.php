@@ -23,14 +23,6 @@
             </ul>
 
             <!-- Form Pencarian dan Tombol Login -->
-            <form class="ms-auto d-flex d-lg-none">
-                <div class="input-group">
-                    <span class="input-group-text" id="basic-addon1">
-                        <i class="bi bi-search"></i>
-                    </span>
-                    <input class="form-control me-4" placeholder="Siapa Yang Anda Cari?" aria-label="Search">
-                </div>
-            </form>
 
             <div class="ms-auto d-none d-lg-flex">
                 <form class="d-flex">
@@ -38,14 +30,13 @@
                         <span class="input-group-text" id="basic-addon1">
                             <i class="bi bi-search"></i>
                         </span>
-                        <input class="form-control me-4" placeholder="Siapa Yang Anda Cari?" aria-label="Search">
+                        <input class="form-control me-4" id="searchInput" placeholder="Siapa Yang Anda Cari?" aria-label="Search">
                     </div>
                 </form>
-
-                <a href="<?= BASEURL ?>/login/index">
-                    <button class="btn btn-success" type="">LOGIN</button>
-                </a>
             </div>
+            <a href="<?= BASEURL ?>/login/index">
+                <button class="btn btn-success" type="">LOGIN</button>
+            </a>
         </div>
     </div>
 </nav>
