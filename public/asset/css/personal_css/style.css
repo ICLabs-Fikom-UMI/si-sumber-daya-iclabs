@@ -55,6 +55,13 @@ section {
   max-height: 500px;
 }
 
+@media (max-width: 767px) {
+  .card {
+    min-height: 400px;
+    max-height: 401px;
+  }
+}
+
 .card-img {
   max-width: 100%;
   min-height: 299px;

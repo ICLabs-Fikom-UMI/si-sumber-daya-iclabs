@@ -20,7 +20,7 @@
             <div class="card-body overflow-hidden">
               <p class="card-name text-center fw-bold searchable"><?= $kepalaLab['nama_kepala_lab'] ?></p>
             </div>
-            <div class="card-info-box overflow-hidden">
+            <div class="card-info-box overflow-hidden d-none d-md-block">
               <div class="fs-6">
                 <span class="fs-6">
                   <img src="<?= BASEURL ?>/asset/image/icon/univ.png" class="me-1">
@@ -67,7 +67,7 @@
             <div class="card-body overflow-hidden">
               <p class="card-name text-center fw-bold searchable"><?= $laboran['nama_laboran'] ?></p>
             </div>
-            <div class="card-info-box">
+            <div class="card-info-box overflow-hidden d-none d-md-block">
               <div class="center ms-0 fs-6">
                 <span>
                   <img src="<?= BASEURL ?>/asset/image/icon/univ.png" class="me-1">
@@ -111,7 +111,7 @@
             <div class="card-body">
               <p class="card-name text-center fw-bold searchable"><?= $asisten['nama_asisten']; ?></p>
             </div>
-            <div class="card-info-box">
+            <div class="card-info-box overflow-hidden d-none d-md-block">
               <div class="center ms-2 fs-6">
                 <span>
                   <img src="<?= BASEURL ?>/asset/image/icon/univ.png" class="me-1">
