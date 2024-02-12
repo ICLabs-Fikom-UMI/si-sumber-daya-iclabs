@@ -28,7 +28,7 @@
                         <td><?= $laboran['nama_laboran'] ?></td>
                         <td>Laboran</td>
                         <td>
-                            <a href="<?= BASEURL ?>/Dashboard/detail_profile_laboran/<?= $laboran['id_user'] ?>">
+                            <a href="<?= BASEURL ?>/Dashboard/detail_profile_laboran/<?= $laboran['id_laboran'] ?>">
                                 <img src="<?= BASEURL ?>/asset/image/icon/detail.png" alt="">
                             </a>
                             <a href="<?= BASEURL ?>/Dashboard/deleteDataLaboran/<?= $laboran['id_laboran'] ?>" class="btn_delete" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')">
