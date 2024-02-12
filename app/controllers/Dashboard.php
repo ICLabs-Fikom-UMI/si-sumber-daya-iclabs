@@ -51,14 +51,15 @@ class Dashboard extends Controller
         }
 
         $data['judul'] = 'Edit Profile';
-        $data['kepala_lab'] = $this->model('KepalaLab_model')->getDataKepalaLabByUserId($id);
+        $data['kepala_lab'] = $this->model('KepalaLab_model')->getKepalaLabById($id);
         $this->view('templates/header_admin', $data);
         $this->view('templates/top_navbar_admin');
         $this->view('admin/detail_kepala_lab', $data);
         $this->view('templates/footer_admin');
     }
 
-    public function view_tambah_data_kepala_lab() {
+    public function view_tambah_data_kepala_lab()
+    {
         session_start();
         if (!isset($_SESSION['id_user'])) {
             header("Location: " . BASEURL . "/Login");
@@ -72,7 +73,8 @@ class Dashboard extends Controller
         $this->view('templates/footer_admin');
     }
 
-    public function tambah_data_kepala_lab(){
+    public function tambah_data_kepala_lab()
+    {
         try {
             $this->model('KepalaLab_model')->createDataKepalaLab($_POST);
             header("Location: " . BASEURL . "/Dashboard/data_kepala_lab");
@@ -129,7 +131,7 @@ class Dashboard extends Controller
         }
 
         $data['judul'] = 'Edit Profile';
-        $data['laboran'] = $this->model('Laboran_model')->getDataLaboranByUserId($id);
+        $data['laboran'] = $this->model('Laboran_model')->getLaboranById($id);
         $this->view('templates/header_admin', $data);
         $this->view('templates/top_navbar_admin');
         $this->view('admin/detail_laboran', $data);
@@ -210,7 +212,7 @@ class Dashboard extends Controller
         }
 
         $data['judul'] = 'Edit Profile';
-        $data['asisten'] = $this->model('Asisten_model')->getDataAsistenByUserId($id);
+        $data['asisten'] = $this->model('Asisten_model')->getAsistenById($id);
         $this->view('templates/header_admin', $data);
         $this->view('templates/top_navbar_admin');
         $this->view('admin/detail_asisten', $data);
@@ -252,7 +254,7 @@ class Dashboard extends Controller
             Flasher::setFlash('Data Asisten Berhasil', 'Diubah', 'success');
             exit();
         } catch (Exception $e) {
-            echo $e->getMessage();
+            echo $e;
         }
     }
 
