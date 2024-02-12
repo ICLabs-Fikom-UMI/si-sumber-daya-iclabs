@@ -88,7 +88,7 @@ class Dashboard extends Controller
     public function edit_data_kepala_lab()
     {
         try {
-            $this->model('KepalaLab_model')->tambah_data_kepLab($_POST);
+            $this->model('KepalaLab_model')->update_detail_data_kepLab($_POST);
             header("Location: " . BASEURL . "/Dashboard/data_kepala_lab");
             Flasher::setFlash('Data Kepala Lab Berhasil', 'Diubah', 'success');
             exit();
@@ -169,7 +169,7 @@ class Dashboard extends Controller
     public function edit_data_laboran()
     {
         try {
-            $this->model('Laboran_model')->tambah_data_laboran($_POST);
+            $this->model('Laboran_model')->update_detail_data_laboran($_POST);
             header("Location: " . BASEURL . "/Dashboard/data_laboran");
             Flasher::setFlash('Data Laboran Berhasil', 'Diubah', 'success');
             exit();
