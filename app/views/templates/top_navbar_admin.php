@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg top-navbar navbar-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand fw-bold text-white me-auto" href="<?= BASEURL ?>">
+        <a class="navbar-brand fw-bold text-white me-auto" href="<?= BASEURL ?>/Dashboard">
             <img src="<?= BASEURL ?>/asset/image/logo.png" alt="Logo" width="76" height="44" class="d-inline-block align-text-center">
             ICLABS
         </a>
