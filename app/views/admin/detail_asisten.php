@@ -2,7 +2,7 @@
     <img class="foto-profile rounded" id="previewFoto" src="../../<?= $data['asisten']['foto'] ?>" alt="profile-photo" />
 </div>
 
-<form action="<?= BASEURL ?>/Dashboard/edit_data_asisten/<?= $data['asisten']['id_asisten'] ?>" method="post" enctype="multipart/form-data">
+<form action="<?= BASEURL ?>/Dashboard/edit_data_asisten" method="post" enctype="multipart/form-data">
     <div class="container-fluid text-center mb-3 ms-5">
         <input type="file" name="foto" id="foto" accept="image/*" onchange="previewImage(this);" />
     </div>
