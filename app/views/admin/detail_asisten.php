@@ -1,17 +1,19 @@
 <div class="container-fluid text-center dibawah-topbar mb-4">
-    <img class="foto-profile rounded" src="../../<?= $data['asisten']['foto'] ?>" alt="profile-photo" />
+    <img class="foto-profile rounded" id="previewFoto" src="../../<?= $data['asisten']['foto'] ?>" alt="profile-photo" />
 </div>
 
-<form action="<?= BASEURL ?>/Dashboard/edit_data_asisten/<?= $data['asisten']['id_user'] ?>" method="post" enctype="multipart/form-data">
+<form action="<?= BASEURL ?>/Dashboard/edit_data_asisten/<?= $data['asisten']['id_asisten'] ?>" method="post" enctype="multipart/form-data">
+    <div class="container-fluid text-center mb-3 ms-5">
+        <input type="file" name="foto" id="foto" accept="image/*" onchange="previewImage(this);" />
+    </div>
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col col-md-12 mb-4 d-flex ">
                 <div class="container-fluid">
-                    <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>">
+                    <input type="hidden" name="id_asisten" value="<?= $data['asisten']['id_asisten'] ?>">
                     <label class="fs-6" for="nama_asisten">Nama Lengkap</label><br />
                     <input type="text" name="nama_asisten" id="nama_asisten" class="input-text-profile rounded-3" placeholder="Masukkan Nama Lengkap Anda" value='<?= $data['asisten']['nama_asisten'] ?>' required />
                 </div>
-
                 <div class="container-fluid">
                     <label class="fs-6" for="prodi">Prodi</label><br />
                     <input type="text" name="prodi" id="prodi" class="input-text-profile rounded-3" placeholder="Ubah Prodi Anda" value="<?= $data['asisten']['prodi'] ?>" required />
