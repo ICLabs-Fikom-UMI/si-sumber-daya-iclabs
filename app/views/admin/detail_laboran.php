@@ -1,13 +1,16 @@
 <div class="container-fluid text-center dibawah-topbar mb-4">
-    <img class="foto-profile rounded" src="../../<?= $data['laboran']['foto'] ?>" alt="foto-profile" />
+    <img class="foto-profile rounded" id="previewFoto" src="../../<?= $data['laboran']['foto'] ?>" alt="foto-profile" />
 </div>
 
-<form action="<?= BASEURL ?>/Dashboard/edit_data_laboran/<?= $data['laboran']['id_user'] ?>" method="post" enctype="multipart/form-data">
+<form action="<?= BASEURL ?>/Dashboard/edit_data_laboran" method="post" enctype="multipart/form-data">
+    <div class="container-fluid text-center mb-3 ms-5">
+        <input type="file" name="foto" id="foto" accept="image/*" onchange="previewImage(this);" />
+    </div>
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col col-md-12 mb-4 d-flex ">
                 <div class="container-fluid">
-                    <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>">
+                    <input type="hidden" name="id_laboran" value="<?= $data['laboran']['id_laboran'] ?>">
                     <label class="fs-6" for="nama_laboran">Nama Lengkap</label><br />
                     <input type="text" name="nama_laboran" id="nama_laboran" class="input-text-profile rounded-3" placeholder="Masukkan Nama Lengkap Anda" value='<?= $data['laboran']['nama_laboran'] ?>' required />
                 </div>
