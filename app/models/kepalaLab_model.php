@@ -148,4 +148,49 @@ class KepalaLab_model
 
         return $this->db->execute();
     }
+
+    public function update_detail_data_kepLab($data)
+    {
+        $uploadDirectory = '../public/asset/image/foto-profile/';
+        $uploadedFile = $_FILES['foto']['tmp_name'];
+        $newFileName = $uploadDirectory . $_FILES['foto']['name'];
+
+        move_uploaded_file($uploadedFile, $newFileName);
+
+        try {
+            $query = "UPDATE " . $this->table . " 
+                  SET nama_kepala_lab = :nama, 
+                      foto = :foto, 
+                      nidn = :nidn, 
+                      lulusan = :lulusan, 
+                      dosen_prodi = :prodi, 
+                      mulai_menjabat = :mulai_menjabat, 
+                      selesai_menjabat = :selesai_menjabat,  
+                      email = :email, 
+                      no_telp = :no_telp, 
+                      deskripsi = :deskripsi, 
+                      bidang_keahlian = :keahlian 
+                  WHERE id_kepala_lab = :id_kepala_lab";
+
+            $this->db->query($query);
+            $this->db->bind('id_kepala_lab', $data['id_kepala_lab']);
+            $this->db->bind('nama', $data['nama_kepala_lab']);
+            $this->db->bind('foto', $newFileName);
+            $this->db->bind('nidn', $data['nidn']);
+            $this->db->bind('lulusan', $data['lulusan']);
+            $this->db->bind('prodi', $data['prodi']);
+            $this->db->bind('mulai_menjabat', $data['mulai_menjabat']);
+            $this->db->bind('selesai_menjabat', $data['selesai_menjabat']);
+            $this->db->bind('email', $data['email']);
+            $this->db->bind('no_telp', $data['no_telp']);
+            $this->db->bind('deskripsi', $data['deskripsi']);
+            $this->db->bind('keahlian', $data['bidang_keahlian']);
+
+            $this->db->execute();
+
+            return $this->db->rowCount();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 }
