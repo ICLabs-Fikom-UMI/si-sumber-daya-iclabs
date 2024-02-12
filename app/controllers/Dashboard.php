@@ -249,7 +249,7 @@ class Dashboard extends Controller
     public function edit_data_asisten()
     {
         try {
-            $this->model('Asisten_model')->tambah_data_asisten($_POST);
+            $this->model('Asisten_model')->update_detail_data_asisten($_POST);
             header("Location: " . BASEURL . "/Dashboard/data_asisten");
             Flasher::setFlash('Data Asisten Berhasil', 'Diubah', 'success');
             exit();
