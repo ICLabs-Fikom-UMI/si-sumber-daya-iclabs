@@ -1,3 +1,7 @@
+<?php
+$isLoggedIn = isset($_SESSION['id_user']);
+?>
+
 <nav class="navbar navbar-expand-lg top-navbar navbar-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand fw-bold text-white me-5" href="<?= BASEURL ?>">
@@ -20,6 +24,11 @@
                 <li class="nav-item me-4">
                     <a class="nav-link text-white" href="#asisten">Asisten Laboratorium</a>
                 </li>
+                <?php if ($isLoggedIn) : ?>
+                    <li class="nav-item me-4">
+                        <a class="nav-link text-white" href="<?= BASEURL ?>/Profile_Asisten/detail_profile/<?= $_SESSION['id_user'] ?>">Profile Saya</a>
+                    </li>
+                <?php endif; ?>
             </ul>
 
             <!-- Form Pencarian dan Tombol Login -->
@@ -34,9 +43,21 @@
                     </div>
                 </form>
             </div>
-            <a href="<?= BASEURL ?>/login/index">
+            <!-- <a href="<?= BASEURL ?>/login/index">
                 <button class="btn btn-success" type="">LOGIN</button>
-            </a>
+            </a> -->
+            <!-- Tombol Login atau Logout -->
+            <?php if ($isLoggedIn) : ?>
+                <!-- Jika sudah login, tampilkan tombol logout -->
+                <a href="<?= BASEURL ?>/Logout/DestroySession">
+                    <button class="btn btn-danger" type="">LOGOUT</button>
+                </a>
+            <?php else : ?>
+                <!-- Jika belum login, tampilkan tombol login -->
+                <a href="<?= BASEURL ?>/login/index">
+                    <button class="btn btn-success" type="">LOGIN</button>
+                </a>
+            <?php endif; ?>
         </div>
     </div>
 </nav>
