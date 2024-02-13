@@ -33,13 +33,32 @@
                             <a href="<?= BASEURL ?>/Dashboard/detail_profile_asisten/<?= $asisten['id_asisten'] ?>">
                                 <img src="<?= BASEURL ?>/asset/image/icon/detail.png" alt="">
                             </a>
-                            <a href="<?= BASEURL ?>/Dashboard/deleteDataAsisten/<?= $asisten['id_asisten'] ?>" class="btn_delete" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')">
+                            <button type="button" class="btn_delete btn ms-2" data-bs-toggle="modal" data-bs-target="#modalHapus">
                                 <img src="<?= BASEURL ?>/asset/image/icon/delete.png" alt="">
-                            </a>
+                            </button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalHapus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6 class="text-center">Anda Yakin Menghapus Data Asisten Ini?</h6>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                <a href="<?= BASEURL ?>/Dashboard/deleteDataAsisten/<?= $asisten['id_asisten'] ?>" role="button" class="btn btn-success">Yakin</a>
+            </div>
+        </div>
     </div>
 </div>
