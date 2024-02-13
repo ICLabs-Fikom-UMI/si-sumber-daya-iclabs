@@ -53,6 +53,10 @@
                     <label class="fs-6" for="email">Email</label><br />
                     <input type="text" name="email" id="email" class="input-text-profile rounded-3" placeholder="Ubah Bidang Keahlian Anda" value="<?= $data['asisten']['email'] ?>" required />
                 </div>
+                <div class="container-fluid">
+                    <label class="fs-6" for="alamat">Alamat</label><br />
+                    <input type="text" name="alamat" id="alamat" class="input-text-profile rounded-3" placeholder="Ubah Email Anda" value="<?= $data['asisten']['alamat'] ?>" required />
+                </div>
             </div>
             <div class="col col-md-12 mb-4 d-flex">
                 <div class="container-fluid mb-4">
