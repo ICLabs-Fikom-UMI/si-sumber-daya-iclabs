@@ -1,84 +1,77 @@
-<div class="row" style="margin-top: 8rem; padding: 0 10rem">
-    <div class="col-md-4">
-        <!-- Konten container pertama -->
-        <div class="card">
-            <img src="../../<?= $data['asisten']['foto'] ?>" class="card-img-top object-fit-cover vh-100" style="object-position: center; height: 330.333px;" alt="Card Image">
-            <div class="card-info-box">
-                <div class="center ms-2 fs-6">
-                    <span>
-                        <img src="<?= BASEURL ?>asset/image/icon/email.png" class="me-1">
-                        <?= $data['asisten']['email']; ?>
-                    </span><br>
-                    <span>
-                        <img src="<?= BASEURL ?>asset/image/icon/nidn.png" class="me-1">
-                        <?= $data['asisten']['nim']; ?>
-                    </span><br>
-                    <span>
-                        <img src="<?= BASEURL ?>asset/image/icon/phone.png" class="me-1">
-                        <?= $data['asisten']['no_telp']; ?>
-                    </span><br>
-                    <span>
-                        <img src="<?= BASEURL ?>asset/image/icon/location.png" class="me-1">
-                        <?= $data['asisten']['alamat']; ?>
-                    </span>
+<div class="container-fluid">
+    <div class="row dibawah-topbar gap-2 pe-5 ps-5 mb">
+        <div class="col-md d-flex justify-content-center">
+            <div class="card w-auto">
+                <img src="../../<?= $data['asisten']['foto'] ?>" class="card-img-top object-fit-cover vh-100" style="object-position: center; min-height: 399px; max-height: 400px;" alt="Card Image">
+                <div class="card-info-box">
+                    <div class="center ms-2 fs-6">
+                        <span>
+                            <img src="<?= BASEURL ?>/asset/image/icon/email.png" class="me-1">
+                            <?= $data['asisten']['email']; ?>
+                        </span><br>
+                        <span>
+                            <img src="<?= BASEURL ?>/asset/image/icon/nidn.png" class="me-1">
+                            <?= $data['asisten']['nim']; ?>
+                        </span><br>
+                        <span>
+                            <img src="<?= BASEURL ?>/asset/image/icon/phone.png" class="me-1">
+                            <?= $data['asisten']['no_telp']; ?>
+                        </span><br>
+                        <span>
+                            <img src="<?= BASEURL ?>/asset/image/icon/location.png" class="me-1">
+                            <?= $data['asisten']['alamat']; ?>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-8 text-light pb-2" style="background-color: #2B4658; height: 21vh;">
-        <div class="container-fluid">
-            <div class="row px-2 pt-4">
-                <div class="col-md-6 d-flex flex-column align-items-start">
-                    <!-- Isi container kedua -->
-                    <h4><?= $data['asisten']['nama_asisten']; ?></h4>
-                    <p style="font-size: .8rem;"><?= $data['asisten']['prodi']; ?></p>
+        <div class="col-md-8 mt-sm">
+            <div class="container-fluid text-light d-flex justify-content-between align-items-center h-auto py-4 px-3" style="background-color: #2B4658;">
+                <div class="container-fluid d-flex justify-content-between ">
+                    <div>
+                        <h4>
+                            <?= $data['asisten']['nama_asisten']; ?> <br>
+                            <span class="fs-6 fw-medium"><?= $data['asisten']['prodi']; ?></span>
+                        </h4>
+                    </div>
+                    <div>
+                        <h5>Angkatan <?= $data['asisten']['angkatan']; ?></h5>
+                    </div>
                 </div>
-                <div class="col-md-6 d-flex flex-column align-items-end">
-                    <!-- Isi container kedua -->
-                    <h5>Angkatan <?= $data['asisten']['angkatan']; ?></h4>
-                </div>
-                <div class="col-md-12 d-flex flex-column align-items-start mt-5">
-                    <p class="text-black" style="text-align: justify; margin-left: -1rem;">
-                        <?= $data['asisten']['deskripsi']; ?>
-                    </p>
-                </div>
-
+            </div>
+            <div class="container-fluid mt-1 h-auto">
+                <p style="text-align: justify;"><?= $data['asisten']['deskripsi']; ?></p>
             </div>
         </div>
     </div>
-</div>
-
-<div class="col-md-12" style="margin-top: 10rem;">
-    <div class="container">
-        <h5>Bidang Keahlian</h5>
+    <div class="row ps-5" style="margin-top: 90px;">
+        <div class="col-md-12">
+            <h5>Bidang Keahlian</h5>
+        </div>
     </div>
-
-    <!-- Bidang Keahlian -->
-    <div class="container mx-auto">
-        <div class="row d-flex align-items-center justify-content-sm-start">
+    <div class="container-fluid px-5">
+        <div class="row d-flex align-items-center justify-content-start">
             <?php foreach (explode(',', $data['asisten']['bidang_keahlian']) as $keahlian) : ?>
                 <div class="col-md-4 ">
-                    <div class="text-white text-center py-3 rounded" style="background-color: #2B4658;">
-                        <h5><?= $keahlian ?></h5>
+                    <div class="text-white text-center rounded mb-3" style="background-color: #2B4658; padding-top: .1px; padding-bottom: .1px">
+                        <p class="fs-6"><?= $keahlian ?></p>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
     </div>
-</div>
 
-<div class="col-md-12" style="margin-top: 10rem;">
-    <div class="container">
-        <h5>Asisten Praktikum</h5>
+    <div class="row ps-5" style="margin-top: 80px;">
+        <div class="col-md-12">
+            <h5>Asisten Praktikum</h5>
+        </div>
     </div>
-
-    <!-- Matkul -->
-    <div class="container mx-auto">
-        <div class="row d-flex align-items-center justify-content-sm-start">
-            <?php foreach (explode(',', $data['asisten']['riwayat_matkul']) as $keahlian) : ?>
-                <div class="col-md-4 mb-4">
-                    <div class="text-white text-center py-3 rounded" style="background-color: #2B4658;">
-                        <h5><?= $keahlian ?></h5>
+    <div class="container-fluid px-5">
+        <div class="row d-flex align-items-center justify-content-start">
+            <?php foreach (explode(',', $data['asisten']['riwayat_matkul']) as $matkul) : ?>
+                <div class="col-md-4 ">
+                    <div class="text-white text-center rounded mb-3" style="background-color: #2B4658; padding-top: .1px; padding-bottom: .1px">
+                        <p class="fs-6"><?= $matkul ?></p>
                     </div>
                 </div>
             <?php endforeach; ?>

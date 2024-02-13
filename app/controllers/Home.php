@@ -2,7 +2,7 @@
 
 class Home extends Controller
 {
-    
+
     public function index()
     {
         $data['judul'] = 'Home';
@@ -46,6 +46,4 @@ class Home extends Controller
         $this->view('home/detail_asisten', $data);
         $this->view('templates/footer');
     }
-
-    
 }
