@@ -193,4 +193,26 @@ class KepalaLab_model
             echo $e->getMessage();
         }
     }
+
+    public function update_foto_kepLab($data)
+    {
+        $uploadDirectory = '../public/asset/image/foto-profile/';
+        $uploadedFile = $_FILES['foto']['tmp_name'];
+        $newFileName = $uploadDirectory . $_FILES['foto']['name'];
+
+        move_uploaded_file($uploadedFile, $newFileName);
+
+        try {
+            $query = "UPDATE " . $this->table . " SET foto = :foto WHERE id_kepala_lab = :id_kepala_lab";
+
+            $this->db->query($query);
+            $this->db->bind('id_kepala_lab', $data['id_kepala_lab']);
+            $this->db->bind('foto', $newFileName);
+            $this->db->execute();
+
+            return $this->db->rowCount();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 }

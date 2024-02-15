@@ -97,6 +97,18 @@ class Dashboard extends Controller
         }
     }
 
+    public function edit_foto_kepala_lab($data)
+    {
+        try {
+            $this->model('KepalaLab_model')->update_foto_kepLab($_POST);
+            header("Location: " . BASEURL . "/Dashboard/detail_profile_kepLab/" . $data . ")");
+            Flasher::setFlash('Foto Kepala Lab Berhasil', 'Diubah', 'success');
+            exit();
+        } catch (Exception $e) {
+            echo $e;
+        }
+    }
+
     public function deleteDataKeplab($id)
     {
         $this->model('Sumber_Daya_Model')->deleteDataKepLabById($id);
@@ -165,7 +177,6 @@ class Dashboard extends Controller
         }
     }
 
-
     public function edit_data_laboran()
     {
         try {
@@ -175,6 +186,18 @@ class Dashboard extends Controller
             exit();
         } catch (Exception $e) {
             echo $e->getMessage();
+        }
+    }
+
+    public function edit_foto_laboran($data)
+    {
+        try {
+            $this->model('Laboran_model')->update_foto_laboran($_POST);
+            header("Location: " . BASEURL . "/Dashboard/detail_profile_laboran/" . $data . ")");
+            Flasher::setFlash('Foto Laboran Berhasil', 'Diubah', 'success');
+            exit();
+        } catch (Exception $e) {
+            echo $e;
         }
     }
 
@@ -257,7 +280,20 @@ class Dashboard extends Controller
             echo $e;
         }
     }
-
+    
+    // admin view
+    public function edit_foto_asisten($data)
+    {
+        try {
+            $this->model('Asisten_model')->update_foto_asisten($_POST);
+            header("Location: " . BASEURL . "/Dashboard/detail_profile_asisten/" . $data . ")");
+            Flasher::setFlash('Foto Asisten Berhasil', 'Diubah', 'success');
+            exit();
+        } catch (Exception $e) {
+            echo $e;
+        }
+    }
+    
     public function deleteDataAsisten($id)
     {
         $this->model('Sumber_Daya_Model')->deleteDataAsistenById($id);

@@ -1,8 +1,26 @@
 <div class="container-fluid text-center dibawah-topbar mb-4">
-    <img class="foto-profile rounded" src="../../<?= $data['kepala_lab']['foto'] ?>" alt="foto-profile" />
+    <form action="<?= BASEURL ?>/Profile_KepLab/edit_foto_profile/<?= $data['kepala_lab']['id_user'] ?>" method="post" enctype="multipart/form-data">
+        <div class="container-fluid mb-4">
+            <div class="text-center">
+                <?php Flasher::flash(); ?>
+                <input type="hidden" name="id_kepala_lab" value="<?= $data['kepala_lab']['id_kepala_lab'] ?>">
+                <img class="foto-profile rounded" id="previewFoto" src="../../<?= $data['kepala_lab']['foto'] ?>" alt="profile-photo" />
+            </div>
+        </div>
+        <div class="container-fluid text-center mb-3 ms-5">
+            <input type="file" name="foto" id="foto" accept="image/*" onchange="previewImage(this);" />
+        </div>
+        <?php
+        var_dump($data['kepala_lab'])
+        ?>
+        <div class="container d-flex justify-content-center mt-4 mb-5 gap-5">
+            <button class="rounded-5 button-biru lebar-button-7rem" type="submit">UBAH</button>
+            <button class="btn btn-danger rounded-5 lebar-button-7rem" type="reset">CANCEL</button>
+        </div>
+    </form>
 </div>
 
-<form action="<?= BASEURL ?>/Profile_KepLab/tambah/ <?= $_SESSION['id_user'] ?>" method="post">
+<form action="<?= BASEURL ?>/Profile_KepLab/tambah/<?= $_SESSION['id_user'] ?>" method="post">
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col col-md-12 mb-4 d-flex ">
@@ -15,6 +33,17 @@
                 <div class="container-fluid">
                     <label class="fs-6" for="no_telp">No. Telepon</label><br />
                     <input type="text" name="no_telp" id="no_telp" class="input-text-profile rounded-3" placeholder="Ganti No. Telepon Anda" value="<?= $data['kepala_lab']['no_telp'] ?>" required />
+                </div>
+            </div>
+            <div class=" col col-md-12 mb-4 d-flex px-">
+                <div class="container-fluid">
+                    <label class="fs-6" for="prodi">Dosen Prodi</label><br />
+                    <input type="text" name="prodi" id="prodi" class="input-text-profile rounded-3" placeholder="Ganti Status Dose Prodi" value="<?= $data['kepala_lab']['dosen_prodi'] ?>" required />
+                </div>
+
+                <div class="container-fluid">
+                    <label class="fs-6" for="lulusan">Lulusan Universitas</label><br />
+                    <input type="text" name="lulusan" id="lulusan" class="input-text-profile rounded-3" placeholder="Ganti Tahun Mulai Menjabat Anda" value="<?= $data['kepala_lab']['lulusan'] ?>" required />
                 </div>
             </div>
             <div class=" col col-md-12 mb-4 d-flex px-">

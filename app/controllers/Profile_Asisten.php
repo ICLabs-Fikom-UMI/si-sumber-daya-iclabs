@@ -47,7 +47,7 @@ class Profile_Asisten extends Controller {
         try {
             if ($this->model('Asisten_model')->tambah_data_asisten($_POST) > 0) {
                 header("Location: " . BASEURL . "/Profile_Asisten/detail_profile/" . $id_user);
-                exit;
+                exit();
             }
         } catch (Exception $e) {
             echo $e;
