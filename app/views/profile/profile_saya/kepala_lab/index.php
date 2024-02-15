@@ -10,9 +10,6 @@
         <div class="container-fluid text-center mb-3 ms-5">
             <input type="file" name="foto" id="foto" accept="image/*" onchange="previewImage(this);" />
         </div>
-        <?php
-        var_dump($data['kepala_lab'])
-        ?>
         <div class="container d-flex justify-content-center mt-4 mb-5 gap-5">
             <button class="rounded-5 button-biru lebar-button-7rem" type="submit">UBAH</button>
             <button class="btn btn-danger rounded-5 lebar-button-7rem" type="reset">CANCEL</button>

@@ -1,5 +1,11 @@
 <?php
 $isLoggedIn = isset($_SESSION['id_user']);
+$userRole = null;
+
+if ($isLoggedIn) {
+    // Assuming you have access to the user's email from the session
+    $role = $_SESSION['role'];
+}
 ?>
 
 <nav class="navbar navbar-expand-lg top-navbar navbar-dark fixed-top">
@@ -25,9 +31,19 @@ $isLoggedIn = isset($_SESSION['id_user']);
                     <a class="nav-link text-white" href="#asisten">Asisten Laboratorium</a>
                 </li>
                 <?php if ($isLoggedIn) : ?>
-                    <li class="nav-item me-4">
-                        <a class="nav-link text-white" href="<?= BASEURL ?>/Profile_Asisten/detail_profile/<?= $_SESSION['id_user'] ?>">Profile Saya</a>
-                    </li>
+                    <?php if ($role === "Asisten Lab") : ?>
+                        <li class="nav-item me-4">
+                            <a class="nav-link text-white" href="<?= BASEURL ?>/Profile_Asisten/detail_profile/<?= $_SESSION['id_user'] ?>">Profile Saya</a>
+                        </li>
+                    <?php elseif ($role === "Kepala Lab") : ?>
+                        <li class="nav-item me-4">
+                            <a class="nav-link text-white" href="<?= BASEURL ?>/Profile_KepLab/detail_profile/<?= $_SESSION['id_user'] ?>">Profile Saya</a>
+                        </li>
+                    <?php elseif ($role === "Laboran") : ?>
+                        <li class="nav-item me-4">
+                            <a class="nav-link text-white" href="<?= BASEURL ?>/Profile_Laboran/detail_profile/<?= $_SESSION['id_user'] ?>">Profile Saya</a>
+                        </li>
+                    <?php endif; ?>
                 <?php endif; ?>
             </ul>
 
