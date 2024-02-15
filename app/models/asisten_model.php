@@ -163,7 +163,6 @@ class Asisten_model
             $query = "UPDATE " . $this->table . " 
           SET nama_asisten = :nama, 
               kelas = :kelas, 
-              foto = :foto, 
               nim = :nim, 
               prodi = :prodi, 
               angkatan = :angkatan,  
@@ -180,7 +179,6 @@ class Asisten_model
             $this->db->bind('id_asisten', $data['id_asisten']);
             $this->db->bind('nama', $data['nama_asisten']);
             $this->db->bind('kelas', $data['kelas']);
-            $this->db->bind('foto', $newFileName);
             $this->db->bind('nim', $data['nim']);
             $this->db->bind('prodi', $data['prodi']);
             $this->db->bind('angkatan', $data['angkatan']);
@@ -191,6 +189,28 @@ class Asisten_model
             $this->db->bind('bidang_keahlian', $data['bidang_keahlian']);
             $this->db->bind('riwayat_matkul', $data['riwayat_matkul']);
 
+            $this->db->execute();
+
+            return $this->db->rowCount();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function update_foto_asisten($data)
+    {
+        $uploadDirectory = '../public/asset/image/foto-profile/';
+        $uploadedFile = $_FILES['foto']['tmp_name'];
+        $newFileName = $uploadDirectory . $_FILES['foto']['name'];
+
+        move_uploaded_file($uploadedFile, $newFileName);
+
+        try {
+            $query = "UPDATE " . $this->table . " SET foto = :foto WHERE id_asisten = :id_asisten";
+
+            $this->db->query($query);
+            $this->db->bind('id_asisten', $data['id_asisten']);
+            $this->db->bind('foto', $newFileName);
             $this->db->execute();
 
             return $this->db->rowCount();

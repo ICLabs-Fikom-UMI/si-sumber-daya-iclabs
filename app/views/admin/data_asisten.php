@@ -1,5 +1,5 @@
 <div class="dibawah-topbar-rapat main-content pt-5 px-3">
-    <?php Flasher::flashHapusData(); ?>
+    <?php Flasher::flash(); ?>
     <div class="container-fluid d-flex justify-content-between gap-3 mb-4">
         <h4>Data Asisten Lab</h4>
     </div>

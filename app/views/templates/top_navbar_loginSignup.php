@@ -13,13 +13,13 @@
             <!-- Menambahkan menu "Home" dan menu lainnya di ujung kanan -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item me-4">
-                    <a class="nav-link text-white" href="<?= BASEURL ?>/home/index.php#kepalaLab">Kepala Lab</a>
+                    <a class="nav-link text-white" href="<?= BASEURL ?>/index.php#kepalaLab">Kepala Lab</a>
                 </li>
                 <li class=" nav-item me-4">
-                    <a class="nav-link text-white" href="<?= BASEURL ?>/home/index.php#laboran">Laboran</a>
+                    <a class="nav-link text-white" href="<?= BASEURL ?>/index.php#laboran">Laboran</a>
                 </li>
                 <li class="nav-item me-4">
-                    <a class="nav-link text-white" href="<?= BASEURL ?>/home/index.php#asisten">Asisten Laboratorium</a>
+                    <a class="nav-link text-white" href="<?= BASEURL ?>/index.php#asisten">Asisten Laboratorium</a>
                 </li>
             </ul>
         </div>
