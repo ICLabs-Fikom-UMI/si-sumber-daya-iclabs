@@ -1,11 +1,27 @@
-<div class="container-fluid text-center dibawah-topbar mb-4">
-    <img class="foto-profile rounded" id="previewFoto" src="../../<?= $data['laboran']['foto'] ?>" alt="foto-profile" />
+<div class="dibawah-topbar mb-5 ps-4">
+    <a href="<?= BASEURL ?>/Dashboard/data_asisten" class="text-decoration-none">
+        <button class="rounded-5 btn lebar-button-7rem text-white" type="submit" style="background-color: #2b4658;">Kembali</button>
+    </a>
 </div>
 
-<form action="<?= BASEURL ?>/Dashboard/edit_data_laboran" method="post" enctype="multipart/form-data">
+<form action="<?= BASEURL ?>/Dashboard/edit_foto_laboran/<?= $data['laboran']['id_laboran'] ?>" method="post" enctype="multipart/form-data">
+    <div class="container-fluid mb-4">
+        <div class="text-center">
+            <?php Flasher::flash(); ?>
+            <input type="hidden" name="id_laboran" value="<?= $data['laboran']['id_laboran'] ?>">
+            <img class="foto-profile rounded" id="previewFoto" src="../../<?= $data['laboran']['foto'] ?>" alt="profile-photo" />
+        </div>
+    </div>
     <div class="container-fluid text-center mb-3 ms-5">
         <input type="file" name="foto" id="foto" accept="image/*" onchange="previewImage(this);" />
     </div>
+    <div class="container d-flex justify-content-center mt-4 mb-5 gap-5">
+        <button class="rounded-5 button-biru lebar-button-7rem" type="submit">UBAH</button>
+        <button class="btn btn-danger rounded-5 lebar-button-7rem" type="reset">CANCEL</button>
+    </div>
+</form>
+
+<form action="<?= BASEURL ?>/Dashboard/edit_data_laboran" method="post" enctype="multipart/form-data">
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col col-md-12 mb-4 d-flex ">

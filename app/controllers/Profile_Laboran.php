@@ -42,4 +42,16 @@ class Profile_Laboran extends Controller
             echo  $e;
         }
     }
+
+    public function edit_foto_profile($data)
+    {
+        try {
+            $this->model('Laboran_model')->update_foto_laboran($_POST);
+            header("Location: " . BASEURL . "/Profile_Laboran/detail_profile/" . $data . "");
+            Flasher::setFlash('Foto Anda Berhasil', 'Diubah', 'success');
+            exit();
+        } catch (Exception $e) {
+            echo $e;
+        }
+    }
 }

@@ -26,7 +26,7 @@ class Flasher
         }
     }
 
-    public static function flashHapusData()
+    public static function flash()
     {
         if (isset($_SESSION['flash'])) {
             echo

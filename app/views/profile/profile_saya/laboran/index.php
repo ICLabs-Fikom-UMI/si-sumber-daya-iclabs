@@ -1,5 +1,20 @@
 <div class="container-fluid text-center dibawah-topbar mb-4">
-    <img class="foto-profile rounded" src="../../<?= $data['laboran']['foto'] ?>" alt="foto-profile" />
+    <form action="<?= BASEURL ?>/Profile_Laboran/edit_foto_profile/<?= $data['laboran']['id_user'] ?>" method="post" enctype="multipart/form-data">
+        <div class="container-fluid mb-4">
+            <div class="text-center">
+                <?php Flasher::flash(); ?>
+                <input type="hidden" name="id_laboran" value="<?= $data['laboran']['id_laboran'] ?>">
+                <img class="foto-profile rounded" id="previewFoto" src="../../<?= $data['laboran']['foto'] ?>" alt="profile-photo" />
+            </div>
+        </div>
+        <div class="container-fluid text-center mb-3 ms-5">
+            <input type="file" name="foto" id="foto" accept="image/*" onchange="previewImage(this);" />
+        </div>
+        <div class="container d-flex justify-content-center mt-4 mb-5 gap-5">
+            <button class="rounded-5 button-biru lebar-button-7rem" type="submit">UBAH</button>
+            <button class="btn btn-danger rounded-5 lebar-button-7rem" type="reset">CANCEL</button>
+        </div>
+    </form>
 </div>
 
 <form action="<?= BASEURL ?>/Profile_Laboran/tambah/ <?= $_SESSION['id_user'] ?>" method="post">
