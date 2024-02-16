@@ -237,17 +237,13 @@ section {
   text-decoration: none !important;
 }
 
-.footer a:hover {
-  text-decoration: underline !important;
+.side-diklik {
+  background-color: #5a86e0;
+  color: white;
+  border-radius: 5px;
+  padding-left: 10px;
 }
 
-.sidebar a:hover {
-  color: #5a86e0 !important;
-}
-
-.active {
-  background-color: #5a86e0 !important;
-  color: white !important;
-  border-radius: 5px !important;
-  padding-left: 10px !important;
+.kolom-nama {
+  width: 300px;
 }

@@ -76,7 +76,7 @@
             </div>
         </div>
     </div>
-    <div class="container d-flex justify-content-center gap-5">
+    <div class="container d-flex justify-content-center gap-5 mb-5">
         <button class="rounded-5 button-biru lebar-button-7rem" type="submit">UBAH</button>
         <button class="btn btn-danger rounded-5 lebar-button-7rem" type="reset">CANCEL</button>
     </div>

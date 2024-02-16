@@ -1,5 +1,5 @@
 </div>
-<div class="footer mt-5">
+<div class="footer">
     <p>&copy; 2024 IcLabs FIKOM UMI. All rights reserved. | Designed by <a href="https://wa.me/qr/HCTOHXBQMPIMD1" target="_blank">Muhammad Dani Arya Putra</a></p>
 </div>
 <script src="<?= BASEURL ?>/asset/js/bootstrap.js"></script>
@@ -21,40 +21,36 @@
         }
     }
 </script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
-    $('.btn_delete').on('click', function(event) {
-                event.preventDefault();
-                const href = $(this).attr('href');
+    // Function to set side-diklik class on clicked link and store it in local storage
+    function setActive(event) {
+        // Remove 'side-diklik' class from all links
+        var links = document.querySelectorAll('.dashboard-link');
+        links.forEach(function(link) {
+            link.classList.remove('side-diklik');
+        });
 
-                const swalWithBootstrapButtons = Swal.mixin({
-                    customClass: {
-                        confirmButton: "btn btn-success ms-2",
-                        cancelButton: "btn btn-danger"
-                    },
-                    buttonsStyling: false
-                });
-                swalWithBootstrapButtons.fire({
-                    title: "Apakah Anda Yakin?",
-                    text: "Data Akan Menghilang Secara Permanent",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonText: "Hapus",
-                    cancelButtonText: "Batalkan",
-                    reverseButtons: true
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        document.location.href = href;
-                    } else if (result.dismiss === Swal.DismissReason.cancel) {
-                        swalWithBootstrapButtons.fire({
-                            title: "Cancelled",
-                            text: "Hapus Data Telah Dibatalkan",
-                            icon: "error"
-                        });
-                    }
-                });
-            });
-</script> -->
+        // Add 'side-diklik' class to the clicked link
+        event.currentTarget.classList.add('side-diklik');
+
+        // Store the ID of the side-diklik link in local storage
+        localStorage.setItem('activeLinkId', event.currentTarget.id);
+    }
+
+    // Add event listeners to each link to handle click
+    document.getElementById('dashboard-link').addEventListener('click', setActive);
+    document.getElementById('kepala-lab-link').addEventListener('click', setActive);
+    document.getElementById('laboran-link').addEventListener('click', setActive);
+    document.getElementById('asisten-link').addEventListener('click', setActive);
+
+    // Check if there is an side-diklik link in local storage and add 'side-diklik' class
+    var activeLinkId = localStorage.getItem('activeLinkId');
+    if (activeLinkId) {
+        document.getElementById(activeLinkId).classList.add('side-diklik');
+        document.getElementById(activeLinkId).classList.remove('text-black');
+    }
+</script>
+</script>
 </body>
 
 </html>

@@ -26,14 +26,14 @@
                     <tr>
                         <td><?= $i++ ?></td>
                         <td><?= $kepalaLab['id_sumber_daya'] ?></td>
-                        <td><?= $kepalaLab['nama_kepala_lab'] ?></td>
+                        <td class="kolom-nama"><?= $kepalaLab['nama_kepala_lab'] ?></td>
                         <td><?= $kepalaLab['nidn'] ?></td>
                         <td>Kepala Lab</td>
                         <td>
                             <a href="<?= BASEURL ?>/Dashboard/detail_profile_kepLab/<?= $kepalaLab['id_kepala_lab'] ?>">
                                 <img src="<?= BASEURL ?>/asset/image/icon/detail.png" alt="">
                             </a>
-                            <button type="button" class="btn_delete btn ms-2" data-bs-toggle="modal" data-bs-target="#modalHapus">
+                            <button type="button" class="btn_delete btn ms-1" data-bs-toggle="modal" data-bs-target="#modalHapus">
                                 <img src="<?= BASEURL ?>/asset/image/icon/delete.png" alt="">
                             </button>
                         </td>

@@ -26,14 +26,14 @@
                     <tr>
                         <td><?= $i++ ?></td>
                         <td><?= $asisten['id_sumber_daya'] ?></td>
-                        <td><?= $asisten['nama_asisten'] ?></td>
+                        <td class="kolom-nama"><?= $asisten['nama_asisten'] ?></td>
                         <td><?= $asisten['nim'] ?></td>
                         <td>Asisten Lab</td>
                         <td>
                             <a href="<?= BASEURL ?>/Dashboard/detail_profile_asisten/<?= $asisten['id_asisten'] ?>">
                                 <img src="<?= BASEURL ?>/asset/image/icon/detail.png" alt="">
                             </a>
-                            <button type="button" class="btn_delete btn ms-2" data-bs-toggle="modal" data-bs-target="#modalHapus">
+                            <button type="button" class="btn_delete btn ms-1" data-bs-toggle="modal" data-bs-target="#modalHapus">
                                 <img src="<?= BASEURL ?>/asset/image/icon/delete.png" alt="">
                             </button>
                         </td>

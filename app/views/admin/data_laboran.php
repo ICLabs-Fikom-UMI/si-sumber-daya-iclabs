@@ -25,13 +25,13 @@
                     <tr>
                         <td><?= $i++ ?></td>
                         <td><?= $laboran['id_sumber_daya'] ?></td>
-                        <td><?= $laboran['nama_laboran'] ?></td>
+                        <td class="kolom-nama"><?= $laboran['nama_laboran'] ?></td>
                         <td>Laboran</td>
                         <td>
                             <a href="<?= BASEURL ?>/Dashboard/detail_profile_laboran/<?= $laboran['id_laboran'] ?>">
                                 <img src="<?= BASEURL ?>/asset/image/icon/detail.png" alt="">
                             </a>
-                            <button type="button" class="btn_delete btn ms-2" data-bs-toggle="modal" data-bs-target="#modalHapus">
+                            <button type="button" class="btn_delete btn ms-1" data-bs-toggle="modal" data-bs-target="#modalHapus">
                                 <img src="<?= BASEURL ?>/asset/image/icon/delete.png" alt="">
                             </button>
                         </td>
