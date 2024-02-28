@@ -50,7 +50,21 @@
         document.getElementById(activeLinkId).classList.remove('text-black');
     }
 </script>
+<script>
+    function validatePassword() {
+        var password = document.getElementById("floatingPassword").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password !== confirmPassword) {
+            alert("Password yang Anda masukkan tidak sama. Silakan periksa kembali.");
+            return false;
+        }
+
+        return true;
+    }
 </script>
+
+
 </body>
 
 </html>

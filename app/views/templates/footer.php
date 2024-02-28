@@ -47,6 +47,45 @@
         }
     }
 </script>
+<script>
+    function maxInputNim(id) {
+        var input = document.getElementById(id);
+        if (input.value.length > 11) {
+            input.value = input.value.slice(0, 11);
+        }
+    }
+</script>
+<script>
+    function maxInputKelas(id) {
+        var input = document.getElementById(id);
+        if (input.value.length > 2) {
+            input.value = input.value.slice(0, 2);
+        }
+    }
+</script>
+<script>
+    function maxInputTahun(id) {
+        var input = document.getElementById(id);
+        if (input.value.length > 4) {
+            input.value = input.value.slice(0, 4);
+        }
+    }
+</script>
+<script>
+    function validatePassword() {
+        var password = document.getElementById("floatingPassword").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password !== confirmPassword) {
+            alert("Password yang Anda masukkan tidak sama. Silakan periksa kembali.");
+            document.getElementById("floatingPassword").value = "";
+            document.getElementById("confirmPassword").value = "";
+            return false;
+        }
+
+        return true;
+    }
+</script>
 </body>
 
 </html>

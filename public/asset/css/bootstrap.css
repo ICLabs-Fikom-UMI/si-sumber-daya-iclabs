@@ -8112,7 +8112,7 @@ textarea.form-control-lg {
 }
 
 .ms-1 {
-  margin-left: 0.25rem !important;
+  /* margin-left: 0.25rem !important; */
 }
 
 .ms-2 {

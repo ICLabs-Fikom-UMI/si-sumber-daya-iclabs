@@ -3,7 +3,7 @@
     <div class="container-fluid d-flex justify-content-between gap-3 mb-4">
         <h4>Data Asisten Lab</h4>
     </div>
-    <a href="<?= BASEURL ?>/Dashboard/view_tambah_data_asisten">
+    <a href="<?= BASEURL ?>/Profile_Asisten">
         <button type="button" class="btn btn-primary ms-4 mb-4">Tambah Data</button>
     </a>
     <div class="container-fluid overflow-y-auto" style="max-height: 60vh;">
@@ -30,12 +30,12 @@
                         <td><?= $asisten['nim'] ?></td>
                         <td>Asisten Lab</td>
                         <td>
-                            <a href="<?= BASEURL ?>/Dashboard/detail_profile_asisten/<?= $asisten['id_asisten'] ?>">
+                            <a href="<?= BASEURL ?>/Profile_Asisten/detail_profile/<?= $asisten['id_user'] ?>">
                                 <img src="<?= BASEURL ?>/asset/image/icon/detail.png" alt="">
+                            </a> <br>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#modalHapus">
+                                <img src="<?= BASEURL ?>/asset/image/icon/delete.png" alt="" class="mt-1">
                             </a>
-                            <button type="button" class="btn_delete btn ms-1" data-bs-toggle="modal" data-bs-target="#modalHapus">
-                                <img src="<?= BASEURL ?>/asset/image/icon/delete.png" alt="">
-                            </button>
                         </td>
                     </tr>
                 <?php endforeach; ?>

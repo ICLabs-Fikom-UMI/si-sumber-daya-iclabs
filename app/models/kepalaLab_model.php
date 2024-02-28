@@ -21,15 +21,7 @@ class KepalaLab_model
         $this->db->query('SELECT id_user FROM ' . $this->table . ' WHERE id_user = :id_user');
         $this->db->bind('id_user', $id);
 
-        $result = $this->db->single();
-
-        if ($result) {
-            // Jika id_user ditemukan di database
-            return true; // atau return $result['id_user'];
-        } else {
-            // Jika id_user tidak ditemukan di database
-            return false;
-        }
+        return $result = $this->db->single();
     }
 
     public function getKepalaLabById($id)
@@ -61,7 +53,7 @@ class KepalaLab_model
                   SET nama_kepala_lab = :nama, 
                       foto = :foto, 
                       nidn = :nidn, 
-                      lulusan = :lulusan, 
+                      bidang_kepala_lab = :bidang_kepala_lab, 
                       dosen_prodi = :prodi, 
                       mulai_menjabat = :mulai_menjabat, 
                       selesai_menjabat = :selesai_menjabat,  
@@ -76,7 +68,7 @@ class KepalaLab_model
             $this->db->bind('nama', $data['nama_kepala_lab']);
             $this->db->bind('foto', $newFileName);
             $this->db->bind('nidn', $data['nidn']);
-            $this->db->bind('lulusan', $data['lulusan']);
+            $this->db->bind('bidang_kepala_lab', $data['bidang_kepala_lab']);
             $this->db->bind('prodi', $data['prodi']);
             $this->db->bind('mulai_menjabat', $data['mulai_menjabat']);
             $this->db->bind('selesai_menjabat', $data['selesai_menjabat']);
@@ -131,66 +123,105 @@ class KepalaLab_model
 
         move_uploaded_file($uploadedFile, $newFileName);
 
-        $query = "CALL create_data_kepala_lab(:nama, :foto, :nidn, :lulusan, :prodi, :mulai_menjabat, :selesai_menjabat, :email, :no_telp, :deskripsi, :bidang_keahlian)";
+        $query = "CALL create_data_kepala_lab(:id_user, :nama, :foto, :nidn, :bidang_kepala_lab, :prodi, :mulai_menjabat, :selesai_menjabat, :email, :no_telp, :deskripsi, :bidang_keahlian)";
 
         $this->db->query($query);
-        $this->db->bind('nama', $_POST['nama_kepala_lab']);
-        $this->db->bind('foto', $newFileName);
-        $this->db->bind('nidn', $_POST['nidn']);
-        $this->db->bind('lulusan', $_POST['lulusan']);
-        $this->db->bind('prodi', $_POST['prodi']);
-        $this->db->bind('mulai_menjabat', $_POST['mulai_menjabat']);
-        $this->db->bind('selesai_menjabat', $_POST['selesai_menjabat']);
-        $this->db->bind('email', $_POST['email']);
-        $this->db->bind('no_telp', $_POST['no_telp']);
-        $this->db->bind('deskripsi', $_POST['deskripsi']);
-        $this->db->bind('bidang_keahlian', $_POST['bidang_keahlian']);
 
-        return $this->db->execute();
-    }
-
-    public function update_detail_data_kepLab($data)
-    {
-        $uploadDirectory = '../public/asset/image/foto-profile/';
-        $uploadedFile = $_FILES['foto']['tmp_name'];
-        $newFileName = $uploadDirectory . $_FILES['foto']['name'];
-
-        move_uploaded_file($uploadedFile, $newFileName);
-
-        try {
-            $query = "UPDATE " . $this->table . " 
-                  SET nama_kepala_lab = :nama, 
-                      foto = :foto, 
-                      nidn = :nidn, 
-                      lulusan = :lulusan, 
-                      dosen_prodi = :prodi, 
-                      mulai_menjabat = :mulai_menjabat, 
-                      selesai_menjabat = :selesai_menjabat,  
-                      email = :email, 
-                      no_telp = :no_telp, 
-                      deskripsi = :deskripsi, 
-                      bidang_keahlian = :keahlian 
-                  WHERE id_kepala_lab = :id_kepala_lab";
-
-            $this->db->query($query);
-            $this->db->bind('id_kepala_lab', $data['id_kepala_lab']);
-            $this->db->bind('nama', $data['nama_kepala_lab']);
+            $this->db->bind('id_user', $_POST['id_user']);
+            $this->db->bind('nama', $_POST['nama_kepala_lab']);
             $this->db->bind('foto', $newFileName);
-            $this->db->bind('nidn', $data['nidn']);
-            $this->db->bind('lulusan', $data['lulusan']);
-            $this->db->bind('prodi', $data['prodi']);
-            $this->db->bind('mulai_menjabat', $data['mulai_menjabat']);
-            $this->db->bind('selesai_menjabat', $data['selesai_menjabat']);
-            $this->db->bind('email', $data['email']);
-            $this->db->bind('no_telp', $data['no_telp']);
-            $this->db->bind('deskripsi', $data['deskripsi']);
-            $this->db->bind('keahlian', $data['bidang_keahlian']);
+            $this->db->bind('nidn', $_POST['nidn']);
+            $this->db->bind('bidang_kepala_lab', $_POST['bidang_kepala_lab']);
+            $this->db->bind('prodi', $_POST['prodi']);
+            $this->db->bind('mulai_menjabat', $_POST['mulai_menjabat']);
+            $this->db->bind('selesai_menjabat', $_POST['selesai_menjabat']);
+            $this->db->bind('email', $_POST['email']);
+            $this->db->bind('no_telp', $_POST['no_telp']);
+            $this->db->bind('deskripsi', $_POST['deskripsi']);
+            $this->db->bind('bidang_keahlian', $_POST['bidang_keahlian']);
 
             $this->db->execute();
-
             return $this->db->rowCount();
-        } catch (Exception $e) {
-            echo $e->getMessage();
+    }
+    
+    public function update_detail_data_kepLab($data)
+    {
+        if (empty($_FILES['foto']['name'])) {
+            try {
+                $query = "UPDATE " . $this->table . " 
+                      SET nama_kepala_lab = :nama, 
+                          nidn = :nidn, 
+                          bidang_kepala_lab = :bidang_kepala_lab, 
+                          dosen_prodi = :prodi, 
+                          mulai_menjabat = :mulai_menjabat, 
+                          selesai_menjabat = :selesai_menjabat,  
+                          email = :email, 
+                          no_telp = :no_telp, 
+                          deskripsi = :deskripsi, 
+                          bidang_keahlian = :keahlian 
+                      WHERE id_kepala_lab = :id_kepala_lab";
+
+                $this->db->query($query);
+                $this->db->bind('id_kepala_lab', $data['id_kepala_lab']);
+                $this->db->bind('nama', $data['nama_kepala_lab']);
+                $this->db->bind('nidn', $data['nidn']);
+                $this->db->bind('bidang_kepala_lab', $data['bidang_kepala_lab']);
+                $this->db->bind('prodi', $data['prodi']);
+                $this->db->bind('mulai_menjabat', $data['mulai_menjabat']);
+                $this->db->bind('selesai_menjabat', $data['selesai_menjabat']);
+                $this->db->bind('email', $data['email']);
+                $this->db->bind('no_telp', $data['no_telp']);
+                $this->db->bind('deskripsi', $data['deskripsi']);
+                $this->db->bind('keahlian', $data['bidang_keahlian']);
+
+                $this->db->execute();
+
+                return $this->db->rowCount();
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+        } else {
+            $uploadDirectory = '../public/asset/image/foto-profile/';
+            $uploadedFile = $_FILES['foto']['tmp_name'];
+            $newFileName = $uploadDirectory . $_FILES['foto']['name'];
+
+            move_uploaded_file($uploadedFile, $newFileName);
+
+            try {
+                $query = "UPDATE " . $this->table . " 
+                      SET nama_kepala_lab = :nama, 
+                          foto = :foto,
+                          nidn = :nidn, 
+                          bidang_kepala_lab = :bidang_kepala_lab, 
+                          dosen_prodi = :prodi, 
+                          mulai_menjabat = :mulai_menjabat, 
+                          selesai_menjabat = :selesai_menjabat,  
+                          email = :email, 
+                          no_telp = :no_telp, 
+                          deskripsi = :deskripsi, 
+                          bidang_keahlian = :keahlian 
+                      WHERE id_kepala_lab = :id_kepala_lab";
+
+                $this->db->query($query);
+                $this->db->bind('id_kepala_lab', $_POST['id_kepala_lab']);
+                $this->db->bind('nama', $_POST['nama_kepala_lab']);
+                $this->db->bind('foto', $newFileName);
+                $this->db->bind('nidn', $_POST['nidn']);
+                $this->db->bind('bidang_kepala_lab', $_POST['bidang_kepala_lab']);
+                $this->db->bind('prodi', $_POST['prodi']);
+                $this->db->bind('mulai_menjabat', $_POST['mulai_menjabat']);
+                $this->db->bind('selesai_menjabat', $_POST['selesai_menjabat']);
+                $this->db->bind('email', $_POST['email']);
+                $this->db->bind('no_telp', $_POST['no_telp']);
+                $this->db->bind('deskripsi', $_POST['deskripsi']);
+                $this->db->bind('keahlian', $_POST['bidang_keahlian']);
+
+                $this->db->execute();
+
+                return $this->db->rowCount();
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
         }
     }
 

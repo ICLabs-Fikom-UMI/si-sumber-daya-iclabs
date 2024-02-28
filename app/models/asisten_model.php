@@ -49,7 +49,6 @@ class Asisten_model
               angkatan = :angkatan,  
               email = :email, 
               no_telp = :no_telp, 
-              alamat = :alamat, 
               deskripsi = :deskripsi, 
               bidang_keahlian = :bidang_keahlian, 
               riwayat_matkul = :riwayat_matkul
@@ -66,7 +65,7 @@ class Asisten_model
             $this->db->bind('angkatan', $data['angkatan']);
             $this->db->bind('email', $data['email']);
             $this->db->bind('no_telp', $data['no_telp']);
-            $this->db->bind('alamat', $data['alamat']);
+
             $this->db->bind('deskripsi', $data['deskripsi']);
             $this->db->bind('bidang_keahlian', $data['bidang_keahlian']);
             $this->db->bind('riwayat_matkul', $data['riwayat_matkul']);
@@ -93,15 +92,7 @@ class Asisten_model
         $this->db->query('SELECT id_user FROM ' . $this->table . ' WHERE id_user = :id_user');
         $this->db->bind('id_user', $id);
 
-        $result = $this->db->single();
-
-        if ($result) {
-            // Jika id_user ditemukan di database
-            return true; // atau return $result['id_user'];
-        } else {
-            // Jika id_user tidak ditemukan di database
-            return false;
-        }
+        return $this->db->single();
     }
 
     public function getIdAsistenByIdUser($id_user)
@@ -132,9 +123,10 @@ class Asisten_model
 
         move_uploaded_file($uploadedFile, $newFileName);
 
-        $query = "CALL create_data_asisten(:nama, :kelas, :foto, :nim, :prodi, :angkatan, :email, :no_telp, :alamat, :deskripsi, :bidang_keahlian, :matkul)";
+        $query = "CALL create_data_asisten(:id_user, :nama, :kelas, :foto, :nim, :prodi, :angkatan, :email, :no_telp, :deskripsi, :bidang_keahlian, :matkul)";
 
         $this->db->query($query);
+        $this->db->bind('id_user', $_POST['id_user']);
         $this->db->bind('nama', $_POST['nama_asisten']);
         $this->db->bind('kelas', $_POST['kelas']);
         $this->db->bind('foto', $newFileName);
@@ -143,79 +135,88 @@ class Asisten_model
         $this->db->bind('angkatan', $_POST['angkatan']);
         $this->db->bind('email', $_POST['email']);
         $this->db->bind('no_telp', $_POST['no_telp']);
-        $this->db->bind('alamat', $_POST['alamat']);
         $this->db->bind('deskripsi', $_POST['deskripsi']);
         $this->db->bind('bidang_keahlian', $_POST['bidang_keahlian']);
         $this->db->bind('matkul', $_POST['riwayat_matkul']);
 
-        return $this->db->execute();
+        $this->db->execute();
+        return $this->db->rowCount();
     }
 
     public function update_detail_data_asisten($data)
     {
-        $uploadDirectory = '../public/asset/image/foto-profile/';
-        $uploadedFile = $_FILES['foto']['tmp_name'];
-        $newFileName = $uploadDirectory . $_FILES['foto']['name'];
-
-        move_uploaded_file($uploadedFile, $newFileName);
-
-        try {
-            $query = "UPDATE " . $this->table . " 
-          SET nama_asisten = :nama, 
-              kelas = :kelas, 
-              nim = :nim, 
-              prodi = :prodi, 
-              angkatan = :angkatan,  
-              email = :email, 
-              no_telp = :no_telp, 
-              alamat = :alamat, 
-              deskripsi = :deskripsi, 
-              bidang_keahlian = :bidang_keahlian, 
-              riwayat_matkul = :riwayat_matkul
-          WHERE id_asisten = :id_asisten";
+        if (empty($_FILES['foto']['name'])) {
+            try {
+                $query = "UPDATE " . $this->table . " SET nama_asisten = :nama, kelas = :kelas, 
+                nim = :nim, prodi = :prodi, angkatan = :angkatan, email = :email,
+                no_telp = :no_telp, deskripsi = :deskripsi, bidang_keahlian = :bidang_keahlian, 
+                riwayat_matkul = :riwayat_matkul WHERE id_asisten = :id_asisten";
 
 
-            $this->db->query($query);
-            $this->db->bind('id_asisten', $data['id_asisten']);
-            $this->db->bind('nama', $data['nama_asisten']);
-            $this->db->bind('kelas', $data['kelas']);
-            $this->db->bind('nim', $data['nim']);
-            $this->db->bind('prodi', $data['prodi']);
-            $this->db->bind('angkatan', $data['angkatan']);
-            $this->db->bind('email', $data['email']);
-            $this->db->bind('no_telp', $data['no_telp']);
-            $this->db->bind('alamat', $data['alamat']);
-            $this->db->bind('deskripsi', $data['deskripsi']);
-            $this->db->bind('bidang_keahlian', $data['bidang_keahlian']);
-            $this->db->bind('riwayat_matkul', $data['riwayat_matkul']);
+                $this->db->query($query);
+                $this->db->bind('id_asisten', $_POST['id_asisten']);
+                $this->db->bind('nama', $_POST['nama_asisten']);
+                $this->db->bind('kelas', $_POST['kelas']);
+                $this->db->bind('nim', $_POST['nim']);
+                $this->db->bind('prodi', $_POST['prodi']);
+                $this->db->bind('angkatan', $_POST['angkatan']);
+                $this->db->bind('email', $_POST['email']);
+                $this->db->bind('no_telp', $_POST['no_telp']);
+                $this->db->bind('deskripsi', $_POST['deskripsi']);
+                $this->db->bind('bidang_keahlian', $_POST['bidang_keahlian']);
+                $this->db->bind('riwayat_matkul', $_POST['riwayat_matkul']);
 
-            $this->db->execute();
+                $this->db->execute();
 
-            return $this->db->rowCount();
-        } catch (Exception $e) {
-            echo $e->getMessage();
+                return $this->db->rowCount();
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+        } else {
+            $uploadDirectory = '../public/asset/image/foto-profile/';
+            $uploadedFile = $_FILES['foto']['tmp_name'];
+            $newFileName = $uploadDirectory . $_FILES['foto']['name'];
+
+            move_uploaded_file($uploadedFile, $newFileName);
+
+            try {
+                $query = "UPDATE " . $this->table . " 
+              SET nama_asisten = :nama, 
+                  kelas = :kelas,
+                  foto = :foto, 
+                  nim = :nim, 
+                  prodi = :prodi, 
+                  angkatan = :angkatan,  
+                  email = :email, 
+                  no_telp = :no_telp,  
+                  deskripsi = :deskripsi, 
+                  bidang_keahlian = :bidang_keahlian, 
+                  riwayat_matkul = :riwayat_matkul
+              WHERE id_asisten = :id_asisten";
+
+
+                $this->db->query($query);
+                $this->db->bind('id_asisten', $_POST['id_asisten']);
+                $this->db->bind('nama', $_POST['nama_asisten']);
+                $this->db->bind('kelas', $_POST['kelas']);
+                $this->db->bind('foto', $newFileName);
+                $this->db->bind('nim', $_POST['nim']);
+                $this->db->bind('prodi', $_POST['prodi']);
+                $this->db->bind('angkatan', $_POST['angkatan']);
+                $this->db->bind('email', $_POST['email']);
+                $this->db->bind('no_telp', $_POST['no_telp']);
+                $this->db->bind('deskripsi', $_POST['deskripsi']);
+                $this->db->bind('bidang_keahlian', $_POST['bidang_keahlian']);
+                $this->db->bind('riwayat_matkul', $_POST['riwayat_matkul']);
+
+                $this->db->execute();
+
+                return $this->db->rowCount();
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
         }
     }
 
-    public function update_foto_asisten($data)
-    {
-        $uploadDirectory = '../public/asset/image/foto-profile/';
-        $uploadedFile = $_FILES['foto']['tmp_name'];
-        $newFileName = $uploadDirectory . $_FILES['foto']['name'];
-
-        move_uploaded_file($uploadedFile, $newFileName);
-
-        try {
-            $query = "UPDATE " . $this->table . " SET foto = :foto WHERE id_asisten = :id_asisten";
-
-            $this->db->query($query);
-            $this->db->bind('id_asisten', $data['id_asisten']);
-            $this->db->bind('foto', $newFileName);
-            $this->db->execute();
-
-            return $this->db->rowCount();
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-    }
+    
 }

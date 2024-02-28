@@ -1,18 +1,21 @@
 <div class="container-fluid d-flex justify-content-center form-lengkapi-profil flex-column">
     <h3 class="fs-3 text-center mb-5">Lengkapi Profile</h3>
-    <form action="<?= BASEURL ?>/Profile_Laboran/tambah/ <?= $_SESSION['id_user'] ?>" method="post" enctype="multipart/form-data">
+    <form action="<?= ($_SESSION['role'] === 'Admin') ? BASEURL . '/Profile_Laboran/tambah' : BASEURL . '/Profile_Laboran/tambah/' . $_SESSION['id_user'] ?>" method="post" enctype="multipart/form-data">
         <div class="container mb-4">
             <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>">
+            <?php if ($_SESSION['role'] == 'Admin') : ?>
+                <input type="hidden" name="role" value="Laboran">
+            <?php endif; ?>
             <label class="fs-6" for="nama_laboran">Nama Lengkap <span class="text-danger">*</span></label><br>
-            <input type="text" name="nama_laboran" id="nama_laboran" class="input-text-profile rounded-3" placeholder="Masukkan Nama Lengkap Anda" required>
+            <input type="text" name="nama_laboran" id="nama_laboran" class="input-text-profile rounded-3" placeholder="Masukkan Nama Lengkap Anda" style="width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;">
         </div>
-        <div class="container mb-4">
+        <div class=" container mb-4">
             <label class="fs-6" for="email">Email <span class="text-danger">*</span></label><br>
-            <input type="text" name="email" id="email" class="input-text-profile rounded-3" placeholder="Masukkan Email Anda" required>
+            <input type="text" name="email" id="email" class="input-text-profile rounded-3" placeholder="Masukkan Email Anda" style="width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;">
         </div>
         <div class="container mb-4">
             <label class="fs-6" for="no_telp">No. Telepon <span class="text-danger">*</span></label><br>
-            <input type="text" name="no_telp" id="no_telp" class="input-text-profile rounded-3" placeholder="Masukkan Nomor Telepon Anda" required>
+            <input type="number" name="no_telp" id="no_telp" class="input-text-profile rounded-3" placeholder="Masukkan Nomor Telepon Anda" style="width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;">
         </div>
         <div class="container mb-4">
             <label class="fs-6" for="foto">Foto Profil <span class="text-danger">*</span></label>
@@ -22,7 +25,6 @@
             <p>Ketentuan Foto:</p>
             <ul class="mb-4" style="list-style-type: circle; margin-top: -1rem;">
                 <li>Maksimal 2 MB</li>
-                <li>Ukuran Foto</li>
             </ul>
             <div class="container d-flex justify-content-start align-items-start gap-5 mb-4">
                 <div class="d-flex flex-column">
@@ -52,11 +54,11 @@
             </div>
             <div class="container mb-4">
                 <label class="fs-6" for="lulusan">Lulusan Universitas <span class="text-danger">*</span></label><br>
-                <input type="text" name="lulusan" id="lulusan" class="input-text-profile rounded-3" placeholder="ex. Universitas Muslim Indonesia" required>
+                <input type="text" name="lulusan" id="lulusan" class="input-text-profile rounded-3" placeholder="ex. Universitas Muslim Indonesia" required style="width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;">
             </div>
             <div class="container mb-4">
                 <label class="fs-6" for="bidang_keahlian">Bidang Keahlian <span class="text-danger">*</span></label><br>
-                <input type="text" name="bidang_keahlian" id="bidang_keahlian" class="input-text-profile rounded-3" placeholder="ex. Java, Machine Learning, dll" required>
+                <input type="text" name="bidang_keahlian" id="bidang_keahlian" class="input-text-profile rounded-3" placeholder="ex. Java, Machine Learning, dll" required style="width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;">
                 <p>note: pisahkan menggunakan tanda koma (,)</p>
             </div>
             <div class="container mb-4">

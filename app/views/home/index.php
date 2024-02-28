@@ -19,21 +19,8 @@
             <div class="card-body overflow-hidden">
               <p class="card-name text-center fw-bold searchable"><?= $kepalaLab['nama_kepala_lab'] ?></p>
             </div>
-            <div class="card-info-box overflow-hidden d-none d-md-block">
-              <div class="fs-6">
-                <span class="fs-6">
-                  <img src="<?= BASEURL ?>/asset/image/icon/univ.png" class="me-1">
-                  <?= $kepalaLab['lulusan'] ?>
-                </span><br>
-                <span>
-                  <img src="<?= BASEURL ?>/asset/image/icon/nidn.png" class="me-1">
-                  <?= $kepalaLab["nidn"] ?>
-                </span><br>
-                <span>
-                  <img src="<?= BASEURL ?>/asset/image/icon/prodi.png" class="me-1">
-                  <?= $kepalaLab["dosen_prodi"] ?>
-                </span>
-              </div>
+            <div class="card-info-box overflow-hidden d-none d-md-block d-flex justify-content-center align-items-center">
+              <h5 class="fs-5 text-center"><?= $kepalaLab['bidang_kepala_lab'] ?></h5>
             </div>
           </div>
         </a>

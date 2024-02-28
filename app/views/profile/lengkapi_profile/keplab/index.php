@@ -1,14 +1,14 @@
 <div class="container-fluid d-flex justify-content-center form-lengkapi-profil flex-column">
     <h3 class="fs-3 text-center mb-5">Lengkapi Profile</h3>
-    <form action="<?= BASEURL ?>/Profile_KepLab/tambah/ <?= $_SESSION['id_user'] ?>" method="post" enctype="multipart/form-data">
+    <form action="<?= ($_SESSION['role'] === 'Admin') ? BASEURL . '/Profile_KepLab/tambah' : BASEURL . '/Profile_KepLab/tambah/' . $_SESSION['id_user'] ?>" method="post" enctype="multipart/form-data">
         <div class="container mb-4">
             <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>">
             <label class=" fs-6" for="nama_kepala_lab">Nama Lengkap <span class="text-danger">*</span></label><br>
-            <input type="text" name="nama_kepala_lab" id="nama_kepala_lab" class="input-text-profile rounded-3" placeholder="Masukkan Nama Lengkap Anda" required>
+            <input type="text" name="nama_kepala_lab" id="nama_kepala_lab" class="input-text-profile rounded-3" placeholder="Masukkan Nama Lengkap Anda" required style="width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;">
         </div>
         <div class="container mb-4">
             <label class="fs-6" for="nidn">NIDN <span class="text-danger">*</span></label><br>
-            <input type="text" name="nidn" id="nidn" class="input-text-profile rounded-3" placeholder="Masukkan NIDN Anda" required>
+            <input type="number" name="nidn" id="nidn" class="input-text-profile rounded-3" placeholder="Masukkan NIDN Anda" required style="width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;">
         </div>
         <div class="container mb-4">
             <p>Dosen Prodi <span class="text-danger">*</span></p>
@@ -19,11 +19,11 @@
         </div>
         <div class="container mb-4">
             <label class="fs-6" for="email">Email <span class="text-danger">*</span></label><br>
-            <input type="text" name="email" id="email" class="input-text-profile rounded-3" placeholder="Masukkan Email Anda" required>
+            <input type="text" name="email" id="email" class="input-text-profile rounded-3" placeholder="Masukkan Email Anda" required style="width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;">
         </div>
         <div class="container mb-4">
             <label class="fs-6" for="no_telp">No. Telepon <span class="text-danger">*</span></label><br>
-            <input type="text" name="no_telp" id="no_telp" class="input-text-profile rounded-3" placeholder="Masukkan Nomor Telepon Anda" required>
+            <input type="number" name="no_telp" id="no_telp" class="input-text-profile rounded-3" placeholder="Masukkan Nomor Telepon Anda" required style="width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;">
         </div>
         <div class="container mb-4">
             <label class="fs-6" for="foto">Foto Profil <span class="text-danger">*</span></label>
@@ -33,7 +33,6 @@
             <p>Ketentuan Foto:</p>
             <ul class="mb-4" style="list-style-type: circle; margin-top: -1rem;">
                 <li>Maksimal 2 MB</li>
-                <li>Ukuran Foto</li>
             </ul>
             <div class="container d-flex justify-content-start align-items-start gap-5 mb-4">
                 <div class="d-flex flex-column">
@@ -62,15 +61,18 @@
                 </div>
             </div>
             <div class="container mb-4">
-                <label class="fs-6" for="lulusan">Lulusan Universitas <span class="text-danger">*</span></label><br>
-                <input type="text" name="lulusan" id="lulusan" class="input-text-profile rounded-3" placeholder="ex. Universitas Muslim Indonesia" required>
+                <label class="fs-6" for="bidang_kepala_lab">Bidang Kepala Lab <span class="text-danger">*</span></label><br>
+                <input type="text" name="bidang_kepala_lab" id="bidang_kepala_lab" class="input-text-profile rounded-3" placeholder="ex. Kepala Laboratorium Jaringan Dan Pemrograman" required style="width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;">
             </div>
             <div class="container mb-4">
                 <label class="fs-6" for="bidang_keahlian">Bidang Keahlian <span class="text-danger">*</span></label><br>
-                <input type="text" name="bidang_keahlian" id="bidang_keahlian" class="input-text-profile rounded-3" placeholder="ex. Java, Machine Learning, dll" required>
+                <input type="text" name="bidang_keahlian" id="bidang_keahlian" class="input-text-profile rounded-3" placeholder="ex. Java, Machine Learning, dll" required style="width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;">
                 <p>note: pisahkan menggunakan tanda koma (,)</p>
             </div>
             <div class="container mb-4">
+                <?php if ($_SESSION['role'] == 'Admin') : ?>
+                    <input type="hidden" name="role" value="Kepala Lab">
+                <?php endif; ?>
                 <label class="fs-6" for="deskripsi">Deskripsi <span class="text-danger">*</span></label><br>
                 <div class="form-floating">
                     <textarea name="deskripsi" id="deskripsi" cols="100%" rows="10" class="rounded-3" placeholder="Deskripsikan Diri Anda" required></textarea>

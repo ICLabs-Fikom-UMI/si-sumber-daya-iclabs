@@ -3,7 +3,7 @@
     <div class="container-fluid d-flex justify-content-between gap-3 mb-4">
         <h4>Data Laboran</h4>
     </div>
-    <a href="<?= BASEURL ?>/Dashboard/view_tambah_data_laboran">
+    <a href="<?= BASEURL ?>/Profile_Laboran">
         <button type="button" class="btn btn-primary ms-4 mb-4">Tambah Data</button>
     </a>
     <div class="container-fluid overflow-y-auto" style="max-height: 60vh;">
@@ -28,12 +28,12 @@
                         <td class="kolom-nama"><?= $laboran['nama_laboran'] ?></td>
                         <td>Laboran</td>
                         <td>
-                            <a href="<?= BASEURL ?>/Dashboard/detail_profile_laboran/<?= $laboran['id_laboran'] ?>">
+                            <a href="<?= BASEURL ?>/Profile_Laboran/detail_profile/<?= $laboran['id_user'] ?>">
                                 <img src="<?= BASEURL ?>/asset/image/icon/detail.png" alt="">
+                            </a> <br>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#modalHapus">
+                                <img src="<?= BASEURL ?>/asset/image/icon/delete.png" alt="" class="mt-1">
                             </a>
-                            <button type="button" class="btn_delete btn ms-1" data-bs-toggle="modal" data-bs-target="#modalHapus">
-                                <img src="<?= BASEURL ?>/asset/image/icon/delete.png" alt="">
-                            </button>
                         </td>
                     </tr>
                 <?php endforeach; ?>

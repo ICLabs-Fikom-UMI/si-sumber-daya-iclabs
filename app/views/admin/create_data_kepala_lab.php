@@ -61,8 +61,8 @@
                 </div>
             </div>
             <div class="container mb-4">
-                <label class="fs-6" for="lulusan">Lulusan Universitas <span class="text-danger">*</span></label><br>
-                <input type="text" name="lulusan" id="lulusan" class="input-text-profile rounded-3" placeholder="ex. Universitas Muslim Indonesia" required>
+                <label class="fs-6" for="bidang_kepala_lab">Bidang Kepala Lab <span class="text-danger">*</span></label><br>
+                <input type="text" name="bidang_kepala_lab" id="bidang_kepala_lab" class="input-text-profile rounded-3" placeholder="ex. Kepala Laboratorium Jaringan Dan Pemrograman" required>
             </div>
             <div class="container mb-4">
                 <label class="fs-6" for="bidang_keahlian">Bidang Keahlian <span class="text-danger">*</span></label><br>

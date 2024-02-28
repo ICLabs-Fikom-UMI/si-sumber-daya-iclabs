@@ -1,6 +1,5 @@
 <?php
 
-
 class Login extends Controller
 {
     public function index()
@@ -15,126 +14,41 @@ class Login extends Controller
     public function login()
     {
         session_start();
+
         try {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $email = $_POST['email'];
+                $emailInput = strtolower($_POST['email']); // Normalisasi email input ke huruf kecil
                 $password = $_POST['password'];
 
-                $user = $this->model('User_model')->login($email, $password);
-                
-                if($user == false) {
+                $user = $this->model('User_model')->login($emailInput, $password);
+
+                if ($user === false) {
                     header("Location: " . BASEURL . "/Login");
                     Flasher::setFlash('Akun Belum', 'Terdaftar', 'danger');
                     exit();
-                } else if ($user) {
-                    $role = $this->model('User_model')->getRoleByEmail($email);
+                } elseif ($user) {
+                    $emailInDatabase = strtolower($user['email']); // Normalisasi email di database ke huruf kecil
+                    $role = $this->model('User_model')->getRoleByEmail($emailInput);
 
+                    // Pastikan email dari input pengguna dan email di database sesuai
+                    if ($emailInput !== $emailInDatabase) {
+                        header("Location: " . BASEURL . "/Login");
+                        Flasher::setFlash('Akun Belum', 'Terdaftar', 'danger');
+                        exit();
+                    }
 
                     // Set session user
                     $_SESSION['role'] = $role['role'];
                     $_SESSION['id_user'] = $role['id_user'];
 
-
                     if ($role['role'] == 'Admin') {
                         header("Location: " . BASEURL . "/Dashboard");
-                    } else if ($role['role'] == 'Kepala Lab') {
-                        $idUser['kepala_lab'] = $this->model('KepalaLab_model')->checkIdUser($user['id_user']);
-
-                        if ($idUser['kepala_lab'] == false) {
-                            $this->model('KepalaLab_model')->insertIduser($user['id_user']);
-                            $idKepalaLab = $this->model('KepalaLab_model')->getIdKepalaLabByIdUser($user['id_user']);
-
-                            try {
-                                $this->model('KepalaLab_model')->insertIdUserIntoTrxTable($idKepalaLab['id_kepala_lab']);
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
-                        }
-
-                        $userData = $this->model('KepalaLab_model')->getDataKepalaLabByUserId($user['id_user']);
-
-                        $isIdentitasComplete = true;
-                        $identitasColumns = ['nama_kepala_lab', 'nidn', 'lulusan', 'dosen_prodi', 'mulai_menjabat', 'email', 'no_telp', 'deskripsi', 'bidang_keahlian'];
-
-                        foreach ($identitasColumns as $column) {
-                            if (empty($userData[$column])) {
-                                $isIdentitasComplete = false;
-                                break;
-                            }
-                        }
-
-                        if ($isIdentitasComplete == true) {
-                            header("Location: " . BASEURL . "/Profile_KepLab/detail_profile/" . $user['id_user']);
-                        } else {
-                            header("Location: " . BASEURL . "/Profile_Keplab");
-                        }
-                    } else if ($role['role'] == 'Laboran') {
-                        $idUser['laboran'] = $this->model('Laboran_model')->checkIdUser($user['id_user']);
-
-                        if ($idUser['laboran'] == false) {
-                            $this->model('Laboran_model')->insertIduser($user['id_user']);
-                            $idLaboran = $this->model('Laboran_model')->getIdLaboranByIdUser($user['id_user']);
-
-                            try {
-                                $this->model('Laboran_model')->insertIdUserIntoTrxTable($idLaboran['id_laboran']);
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
-                        }
-
-                        $userData = $this->model('Laboran_model')->getDataLaboranByUserId($user['id_user']);
-
-                        $isIdentitasComplete = true;
-                        $identitasColumns = ['nama_laboran', 'lulusan', 'mulai_menjabat', 'email', 'no_telp', 'deskripsi', 'bidang_keahlian'];
-
-                        foreach ($identitasColumns as $column) {
-                            if (empty($userData[$column])) {
-                                $isIdentitasComplete = false;
-                                break;
-                            }
-                        }
-
-                        if ($isIdentitasComplete == true) {
-                            header("Location: " . BASEURL . "/Profile_Laboran/detail_profile/" . $user['id_user']);
-                        } else {
-                            header("Location: " . BASEURL . "/Profile_Laboran");
-                        }
-                    } else if ($role['role'] == 'Asisten Lab') {
-                        $idUser['asisten'] = $this->model('Asisten_model')->checkIdUser($user['id_user']);
-
-                        if ($idUser['asisten'] == false) {
-                            $this->model('Asisten_model')->insertIduser($user['id_user']);
-
-                            try {
-                                $idAsisten = $this->model('Asisten_model')->getIdAsistenByIdUser($user['id_user']);
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
-
-                            try {
-                                $this->model('Asisten_model')->insertIdUserIntoTrxTable($idAsisten['id_asisten']);
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
-                        }
-
-                        $userData = $this->model('Asisten_model')->getDataAsistenByUserId($user['id_user']);
-
-                        $isIdentitasComplete = true;
-                        $identitasColumns = ['nama_asisten', 'kelas', 'nim', 'prodi', 'angkatan', 'email', 'no_telp', 'alamat', 'deskripsi', 'bidang_keahlian', 'riwayat_matkul'];
-
-                        foreach ($identitasColumns as $column) {
-                            if (empty($userData[$column])) {
-                                $isIdentitasComplete = false;
-                                break;
-                            }
-                        }
-
-                        if ($isIdentitasComplete == true) {
-                            header("Location: " . BASEURL . "/Profile_Asisten/detail_profile/" . $user['id_user']);
-                        } else {
-                            header("Location: " . BASEURL . "/Profile_Asisten");
-                        }
+                    } elseif ($role['role'] == 'Kepala Lab') {
+                        header("Location: " . BASEURL . "/Profile_Keplab");
+                    } elseif ($role['role'] == 'Laboran') {
+                        header("Location: " . BASEURL . "/Profile_Laboran");
+                    } elseif ($role['role'] == 'Asisten Lab') {
+                        header("Location: " . BASEURL . "/Profile_Asisten");
                     }
                 }
             }
@@ -142,4 +56,5 @@ class Login extends Controller
             echo $e;
         }
     }
+
 }
