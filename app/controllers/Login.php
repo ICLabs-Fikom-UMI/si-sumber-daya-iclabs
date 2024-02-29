@@ -17,7 +17,7 @@ class Login extends Controller
 
         try {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $emailInput = strtolower($_POST['email']); // Normalisasi email input ke huruf kecil
+                $emailInput = $_POST['email']; // Normalisasi email input ke huruf kecil
                 $password = $_POST['password'];
 
                 $user = $this->model('User_model')->login($emailInput, $password);
