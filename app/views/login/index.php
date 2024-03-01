@@ -13,7 +13,10 @@
         </div>
 
         <div class="form-group mb-4">
-            <label for="password" class="form-label text-biru">Password</label>
+            <div class="d-flex justify-content-between">
+                <label for="password" class="form-label text-biru">Password</label>
+                <a class="text-decoration-none text-biru fw-lighter icon-link" style="font-size: small;" href="<?= BASEURL ?>/Lupa_Pass">Lupa Password ?</a>
+            </div>
             <div class="input-group">
                 <span class="input-group-text formku"><i class="bi bi-lock"></i></span>
                 <input type="password" class="form-control formku" id="password" placeholder="Masukkan password Anda" name="password" required>
